@@ -1,0 +1,10 @@
+achievementsText = achievementsG
+creditsText = creditsG
+leaderboardsText = leaderboardsG
+missionsText = missionsG
+shortMusicText = MG
+shortSoundText = SG
+privacyStatementButtonText = privacy \nstatementG
+shopText = shopG
+onText = onG
+offText = offG
