@@ -26,12 +26,18 @@ public class BasicPlayerMovementScript : MonoBehaviour
 
 	private Rigidbody2D myRigidbody;
 	private Transform myTransform;
+	private BoxCollider2D _hitbox;
 
-	// Use this for initialization
-	void OnEnable () 
+	void Awake ()
 	{
 		myRigidbody = GetComponent<Rigidbody2D>();
 		myTransform = transform;
+		_hitbox = GetComponent<BoxCollider2D> ();
+	}
+
+	void OnEnable () 
+	{
+
 
 		SoftPauseScript.instance.SoftUpdate += SoftUpdate;
 	}
@@ -63,6 +69,16 @@ public class BasicPlayerMovementScript : MonoBehaviour
 		// Apply horizontal movement
 		newVelocity = myRigidbody.velocity;
 		newVelocity.x =  Input.GetAxis("Horizontal") * Constants.RUN_SPEED;
+
+		// If our front sensor hit something
+		if (isHitForward)
+		{
+			// If we're trying to move toward the point we hit cancel movement
+			if (Mathf.Sign(newVelocity.x) == Mathf.Sign(mySprite.scale.x))
+			{
+				newVelocity.x = 0;
+			}
+		}
 		myRigidbody.velocity = newVelocity;
 
 		// Make sure the sprite is facing the right way
@@ -134,20 +150,27 @@ public class BasicPlayerMovementScript : MonoBehaviour
 	{
 		//---------------------------------------------------------------------
 		// Use raycasting to find where the ground is in relation to the player
-		// and what angle the ground is they are on.
+		// and what angle the ground they are on is.
 		//---------------------------------------------------------------------
 		
 		// Set the direction and distance of the ground check
 		Vector2 downDirection = new Vector2(0, -1);// -myTransform.up;
-		Vector2 forwardDirection = new Vector2(myTransform.localScale.x, 0);
+		Vector2 forwardDirection = new Vector2(mySprite.scale.x, 0);
 		float distanceSide = 1.5f;
 		float distanceGround = 1.5f;
-		float distanceFront = 1.5f;
-		
+		float distanceFront = (_hitbox.size.x / 2f) + 0.5f;
+
+		// Get the start positions for the two forward checks
+		Vector3 l_forwardStartT = myTransform.position;
+		l_forwardStartT.y += _hitbox.size.y;
+		Vector3 l_forwardStartB = myTransform.position;
+
 		// Create debug visualizations of the rays being used
 		Debug.DrawRay (rightSensorTransform.position, downDirection * distanceSide, Color.green);
 		Debug.DrawRay (leftSensorTransform.position, downDirection * distanceSide, Color.green);
 		Debug.DrawRay (groundSensorTransform.position, downDirection * distanceGround, Color.red);
+		Debug.DrawRay (l_forwardStartT, forwardDirection * distanceFront, Color.blue);
+		Debug.DrawRay (l_forwardStartB, forwardDirection * distanceFront, Color.blue);
 		
 		//		Debug.DrawRay (topSensorTransform.position, forwardDirection * distanceFront, Color.yellow);
 		//		Debug.DrawRay (bottomSensorTransform.position, forwardDirection * distanceFront, Color.yellow);
@@ -156,12 +179,15 @@ public class BasicPlayerMovementScript : MonoBehaviour
 		RaycastHit2D hitR = Physics2D.Raycast(rightSensorTransform.position, downDirection, distanceSide, groundCheckMask);
 		RaycastHit2D hitL = Physics2D.Raycast(leftSensorTransform.position, downDirection, distanceSide, groundCheckMask);
 		RaycastHit2D hitG = Physics2D.Raycast(groundSensorTransform.position, downDirection, distanceGround, groundCheckMask);
+		RaycastHit2D hitFT = Physics2D.Raycast(l_forwardStartT, forwardDirection, distanceFront, groundCheckMask);
+		RaycastHit2D hitFB = Physics2D.Raycast(l_forwardStartB, forwardDirection, distanceFront, groundCheckMask);
 		//		RaycastHit2D hitT = Physics2D.Raycast(topSensorTransform.position, forwardDirection, distanceFront, groundCheckMask);
 		//		RaycastHit2D hitB = Physics2D.Raycast(bottomSensorTransform.position, forwardDirection, distanceFront, groundCheckMask);
 		
 		isHitR = false;
 		isHitL = false;
 		isHitG = false;
+		isHitForward = false;
 		
 		hitPointR = Vector2.zero;
 		hitPointL = Vector2.zero;
@@ -187,6 +213,20 @@ public class BasicPlayerMovementScript : MonoBehaviour
 		{
 			isHitG = true;
 			hitPointG = hitG.point;
+		}
+
+		// The front top sensor hit something
+		if (hitFT != null && hitFT.collider != null)
+		{
+			isHitForward = true;
+			hitPointForward = hitFT.point;
+		}
+
+		// The front bottom sensor hit something
+		if (hitFB != null && hitFB.collider != null)
+		{
+			isHitForward = true;
+			hitPointForward = hitFB.point;
 		}
 	}
 
