@@ -10,7 +10,7 @@ public class StayAtScreenPoint : MonoBehaviour
 	void Start () 
 	{
 		myTransform = transform;
-		camera = GameObject.FindGameObjectWithTag("MainCamera").camera;
+		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		myScreenPoint = camera.WorldToScreenPoint(myTransform.position);
 	}
 

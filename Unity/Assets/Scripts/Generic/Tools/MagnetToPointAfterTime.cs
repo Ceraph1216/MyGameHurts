@@ -47,8 +47,8 @@ public class MagnetToPointAfterTime : MonoBehaviour
 		waitTimer = 0f;
 		trail.enabled = true;
 		GetComponent<ParticleSystem>().enableEmission = true;
-		rigidbody2D.isKinematic = false;
-		rigidbody2D.AddForce( new Vector2( UnityEngine.Random.Range( -100f, 300f ), UnityEngine.Random.Range( 0, 600f ) ) );
+		GetComponent<Rigidbody2D>().isKinematic = false;
+		GetComponent<Rigidbody2D>().AddForce( new Vector2( UnityEngine.Random.Range( -100f, 300f ), UnityEngine.Random.Range( 0, 600f ) ) );
 	}
 	
 	void OnEnable()

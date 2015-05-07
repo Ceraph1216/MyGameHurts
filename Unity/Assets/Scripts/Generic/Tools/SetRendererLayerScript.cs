@@ -9,7 +9,7 @@ public class SetRendererLayerScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		renderer.sortingLayerName = sortingLayerName;
-		renderer.sortingOrder = sortingOrder;
+		GetComponent<Renderer>().sortingLayerName = sortingLayerName;
+		GetComponent<Renderer>().sortingOrder = sortingOrder;
 	}
 }

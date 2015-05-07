@@ -7,7 +7,7 @@ public class PlayerCollisionScript : MonoBehaviour
 	
 	void Awake() 
 	{
-		myRigidbody = rigidbody2D;
+		myRigidbody = GetComponent<Rigidbody2D>();
 	}
 	
 	void OnCollisionEnter2D(Collision2D collision)

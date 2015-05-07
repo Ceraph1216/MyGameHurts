@@ -30,7 +30,7 @@ public class BasicPlayerMovementScript : MonoBehaviour
 	// Use this for initialization
 	void OnEnable () 
 	{
-		myRigidbody = rigidbody2D;
+		myRigidbody = GetComponent<Rigidbody2D>();
 		myTransform = transform;
 
 		SoftPauseScript.instance.SoftUpdate += SoftUpdate;
