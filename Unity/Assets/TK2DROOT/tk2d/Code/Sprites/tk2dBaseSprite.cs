@@ -176,7 +176,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 				renderLayer = value; // for awake
 				CachedRenderer.sortingOrder = value;
 #if UNITY_EDITOR
-				UnityEditor.EditorUtility.SetDirty(CachedRenderer);
+				tk2dUtil.SetDirty(CachedRenderer);
 #endif
 			}
 #endif
@@ -416,18 +416,20 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 		}
 		
 		// The secondary test sprite.normals != null must have been performed prior to this function call
-		if (normals.Length > 0)
+		int numNormals = sprite.normals.Length;
+		if (normals.Length == numNormals)
 		{
-			for (int i = 0; i < numVertices; ++i)
+			for (int i = 0; i < numNormals; ++i)
 			{
 				normals[i] = sprite.normals[i];
 			}
 		}
 
 		// The secondary test sprite.tangents != null must have been performed prior to this function call
-		if (tangents.Length > 0)
+		int numTangents = sprite.tangents.Length;
+		if (tangents.Length == numTangents)
 		{
-			for (int i = 0; i < numVertices; ++i)
+			for (int i = 0; i < numTangents; ++i)
 			{
 				tangents[i] = sprite.tangents[i];
 			}
@@ -591,7 +593,11 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 					if (!boxCollider2D.enabled) {
 						boxCollider2D.enabled = true;
 					}
+#if (UNITY_3_5 || UNITY_4_0 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_4_8 || UNITY_4_9)
+					boxCollider2D.center = new Vector2(sprite.colliderVertices[0].x * _scale.x, sprite.colliderVertices[0].y * _scale.y);
+#else
 					boxCollider2D.offset = new Vector2(sprite.colliderVertices[0].x * _scale.x, sprite.colliderVertices[0].y * _scale.y);
+#endif
 					boxCollider2D.size = new Vector2(Mathf.Abs(2 * sprite.colliderVertices[1].x * _scale.x), Mathf.Abs(2 * sprite.colliderVertices[1].y * _scale.y));
 				}
 				else if (sprite.colliderType == tk2dSpriteDefinition.ColliderType.Mesh)
@@ -738,8 +744,10 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 				meshColliderMesh.triangles = (s >= 0.0f)?sprite.colliderIndicesFwd:sprite.colliderIndicesBack;
 				meshCollider.sharedMesh = meshColliderMesh;
 				meshCollider.convex = sprite.colliderConvex;
+#if (UNITY_3_5|| UNITY_4_0)
 				meshCollider.smoothSphereCollisions = sprite.colliderSmoothSphereCollisions;
-				
+#endif
+
 				// this is required so our mesh pivot is at the right point
 				if (GetComponent<Rigidbody>()) GetComponent<Rigidbody>().centerOfMass = Vector3.zero;
 			}
@@ -906,6 +914,14 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 #endif		
 	}
 
+#if UNITY_EDITOR
+	private void OnEnable() {
+		if (GetComponent<Renderer>() != null && Collection != null && GetComponent<Renderer>().sharedMaterial == null && Collection.inst.needMaterialInstance) {
+			ForceBuild();
+		}
+	}
+#endif
+	
 	// Used by derived classes only
 	public void CreateSimpleBoxCollider() {
 		if (CurrentSprite == null) {
