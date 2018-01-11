@@ -99,35 +99,7 @@ MonoBehaviour:
       eventInfo: 
       eventInt: 0
       eventFloat: 0
-    - spriteCollection: {fileID: 11400000, guid: de5f29d09b9d079439a9c0bd495afa46,
-        type: 2}
-      spriteId: 3
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 11400000, guid: de5f29d09b9d079439a9c0bd495afa46,
-        type: 2}
-      spriteId: 10
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 11400000, guid: de5f29d09b9d079439a9c0bd495afa46,
-        type: 2}
-      spriteId: 7
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    - spriteCollection: {fileID: 11400000, guid: de5f29d09b9d079439a9c0bd495afa46,
-        type: 2}
-      spriteId: 5
-      triggerEvent: 0
-      eventInfo: 
-      eventInt: 0
-      eventFloat: 0
-    fps: 15
+    fps: 7
     loopStart: 0
     wrapMode: 0
   - name: fall
