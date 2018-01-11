@@ -13,15 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 4
   spriteAnimationIndex:
-  - assetGUID: 18a39674a9b14f54b97497254e83b349
-    dataGUID: 
-    managed: 0
-    loadable: 0
-  - assetGUID: 68cc4da10d501f9439d1507a1a2c46c1
-    dataGUID: 
-    managed: 0
-    loadable: 0
-  - assetGUID: eba2002e1b52e457f811082cb3edaa4d
+  - assetGUID: d63ba65297c29174a8c5ab8a162f2622
     dataGUID: 
     managed: 0
     loadable: 0
@@ -29,40 +21,283 @@ MonoBehaviour:
     dataGUID: 
     managed: 0
     loadable: 0
-  - assetGUID: d63ba65297c29174a8c5ab8a162f2622
-    dataGUID: 
-    managed: 0
-    loadable: 0
-  fontIndex:
-  - assetGUID: 063b15d80dbb4604d890600a64c79cf8
-    dataGUID: e7a6b09a73c6b2b4f8060096ddbd3b5e
-    managed: 0
-    loadable: 0
-  - assetGUID: 5b9fac241be038041b70ac7e84cd6151
-    dataGUID: 3082bbcb45b417041963b6b8562266c1
-    managed: 0
-    loadable: 0
-  - assetGUID: db60ffa92fa16ea478fc7ad4f595a0e6
-    dataGUID: 44e006873ca04f741b2ac3ba5dec92ad
-    managed: 0
-    loadable: 0
-  - assetGUID: 696edcc0ae48b72449b2be1a439a7afb
-    dataGUID: fb1b97eccf6db514999d1605baf017e5
-    managed: 0
-    loadable: 0
-  - assetGUID: d54d053b1eb9f435ba39d0a7275f7576
-    dataGUID: 00d50654c71944d04960d88e3c352cc1
-    managed: 0
-    loadable: 0
-  - assetGUID: 622b62f4ce4054167ba7243119b7143c
-    dataGUID: dc5e8cfc5fff846d7a573bb8f5960093
-    managed: 0
-    loadable: 0
-  - assetGUID: f6e659f74eb1b461b9ba3f6418086bbb
-    dataGUID: cb3bf0ad5e92744d6856da9a7d5a3125
-    managed: 0
-    loadable: 0
+  fontIndex: []
   spriteCollectionIndex:
+  - name: EnvironmentCollection
+    spriteCollectionGUID: 97818396db4ce514a858548fdce6fc5a
+    spriteCollectionDataGUID: a5dcceaa5a7f9de438ae8f1c1936e154
+    spriteNames:
+    - checkerboard_test
+    spriteTextureGUIDs:
+    - 3241a6e6b7877ab42a415dca5a2e994a
+    spriteTextureTimeStamps:
+    - 1498166763.11381
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: IdolCollection
+    spriteCollectionGUID: d4b662b986fa59a4c98f2f39f3419b70
+    spriteCollectionDataGUID: 5bc248ab0a7d6694ba8bf38d69f05d96
+    spriteNames:
+    - idle
+    spriteTextureGUIDs:
+    - dc0748396cb4e1b4f930505c2c4a42c2
+    spriteTextureTimeStamps:
+    - 1498166762.81644
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: MavCollection
+    spriteCollectionGUID: 80bd7c1378db3234daa1d8e9385b923c
+    spriteCollectionDataGUID: c8cab479e6cbfaf4987fee10c4f55362
+    spriteNames:
+    - idle_mav_lower_right_leg
+    - idle_mav_lower_left_leg
+    - idle_mav_left_arm
+    - idle_mav_upper_right_arm
+    - idle_mav_upper_torso
+    - idle_mav_lower_right_arm
+    - idle_mav_upper_left_leg
+    - idle_mav_head
+    - idle_mav_upper_right_leg
+    - idle_mav_lower_torso
+    spriteTextureGUIDs:
+    - 1bcc53282de963449a08de6a61b25572
+    - 1e14802fd4028044d88ec250151e2ad6
+    - 262e578e226fc164a9bfe81bd1e18b49
+    - 32035d008edaa7946852955db519c3c6
+    - 43b18111126f06d4a943b3a873597900
+    - 69bc00bb1654a374aa7a0db05ccaa0e2
+    - 6b3e1e3f9ddbebf4f978c3a8ed648ba4
+    - a76ba6855e9f1f34eadf1bd93da2df0a
+    - e51c7d8b78626b84a877055d5e5effa5
+    - e7bd04f6d3c9df642a72d2cf864b979c
+    spriteTextureTimeStamps:
+    - 1498166762.84696
+    - 1498166762.83745
+    - 1498166762.83295
+    - 1498166762.86397
+    - 1498166762.87298
+    - 1498166762.84145
+    - 1498166762.85747
+    - 1498166762.82845
+    - 1498166762.86847
+    - 1498166762.85146
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: MavUnshadeCollection
+    spriteCollectionGUID: 1085b7804bbd59043b5d306ad2a3f0a2
+    spriteCollectionDataGUID: fb0a6ff3677a2324ca7c52b840c93a84
+    spriteNames:
+    - MavUnshaded
+    spriteTextureGUIDs:
+    - 93c725aa6ba9ec3409595ab4f75f703c
+    spriteTextureTimeStamps:
+    - 1498492335.04827
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: MovShadedCollection
+    spriteCollectionGUID: fad80e347312ea045ab4f47de3c12ba8
+    spriteCollectionDataGUID: 479888136fa93e1449d2d6a59f41609b
+    spriteNames:
+    - MavShaded
+    spriteTextureGUIDs:
+    - 8f08f9229c5716a4088817d597da49fa
+    spriteTextureTimeStamps:
+    - 1498492335.03826
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: ZoruCollection
+    spriteCollectionGUID: 429b5b5214412c743ac54505caa8733f
+    spriteCollectionDataGUID: d245b65eb58066a4789eb0075fac6efb
+    spriteNames:
+    - idle_zoru3
+    - idle_zoru5
+    - idle_zoru4
+    - k_attack_zoru5
+    - idle_zoru8
+    - k_attack_zoru6
+    - idle_zoru1
+    - k_attack_zoru7
+    - idle_zoru2
+    - idle_zoru7
+    - k_attack_zoru21
+    - idle_zoru6
+    - fall_zoru1
+    - jump_zoru1
+    - jump_zoru2
+    - land_zoru1
+    - jump_zoru3
+    - fall_zoru3
+    - jumpPrep_zoru1
+    - jumpPrep_zoru2
+    - jump_zoru4
+    - fall_zoru2
+    - land_zoru2
+    - run_zoru5
+    - run_zoru8
+    - run_zoru3
+    - run_zoru1
+    - run_zoru6
+    - run_zoru2
+    - run_zoru7
+    - run_zoru4
+    - turn_zoru1
+    - k_attack_zoru12
+    - k_attack_zoru13
+    - k_attack_zoru14
+    - k_attack_zoru15
+    - k_attack_zoru23
+    - k_attack_zoru8
+    - k_attack_zoru9
+    - k_attack_zoru10
+    - k_attack_zoru1
+    - k_attack_zoru11
+    - k_attack_zoru4
+    - k_attack_zoru20
+    - k_attack_zoru22
+    - k_attack_zoru2
+    - k_attack_zoru3
+    - k_attack_zoru16
+    - k_attack_zoru17
+    - k_attack_zoru18
+    - k_attack_zoru19
+    spriteTextureGUIDs:
+    - 6312f31d1aafd994ba1c509978095f96
+    - 8ffdef1449c64d943952e3f19107b4d8
+    - 96be1d392bf9c6441a076219120db08b
+    - 21ffeb11288acc14292be34e0f08d792
+    - c6d8a7cef4ceef344a7898208617661a
+    - eb99d66cb17a60f45b837bcc6aa7e639
+    - d852c777641342649b9800f417579c5c
+    - 98c42cdceaff7824ba4f8f0adb43f805
+    - da0864eabb94ec24990d0412e5e3dd86
+    - e68d7984b7787cd4d9289ce85c715f89
+    - 9998bfbd86643514c9c63dcf4e01d9e7
+    - fdfb1eaf9a33efc47863a2938bb9e043
+    - 00accb4fe9fc54147b258f276ba0452b
+    - 1a46db13408e6da47ad325f22f968708
+    - 33b3abbfe59a4104ca76d44894665f19
+    - 3e491edaad911bf438b6c052ea9042ef
+    - 43dacf9dee3bb6b4cb5ef577e2f4d4ca
+    - 5967d4fa3d685c64da5f5ccdb628bead
+    - 667f352664f8daf48955539478514810
+    - 8e9d997b9bca93e4bb2892caa9950833
+    - d23caf1cbd63c6a43abd9f6f1b9daaef
+    - e36ca3e86d4aa834ba656224aaca7f9d
+    - e87786ce394e9a84fbeba76c997c4c9b
+    - 329458b1afb4d8a4493830d573a5577e
+    - 459b33c00ef786244936721c7f59a5aa
+    - 55321313a9eb2304298d58597a6d26d0
+    - 6f373f8ac7d5b8c4db309f44d9183eed
+    - 7b1d8620eae16ca408ac9d6fa8fb6b66
+    - 833f47f2ef2cbad4680d8e4d5538fbb9
+    - d2154f93444174140908d071f676e7de
+    - f3e9571e65c750f4ca125d39a2682a38
+    - f81fbbe8f6728704c866a38eaa2d267b
+    - 3fca9bc826fcbeb45ab0f6c37950925a
+    - b8f7b827b42cc284dbcfc3b5964b3457
+    - 2835e437faf316140a76be22766dd457
+    - 63531c46fc92c2a40835ad346a3247c2
+    - 56b08843d3e91004fa5a52f16ea29212
+    - f39d032237326d64eae753138cc5dcd1
+    - 1d0d902961ea6e54d823fcc77e6ff3ef
+    - e901eb8a67d0ab141999a69e9b02dc21
+    - 513ebffc0554e3545a53702ee1bfd846
+    - 9ab534e687ad18a46b62dffd307a993f
+    - 78e69dd8bff572248ad482a946feb8ff
+    - 2b74e9f33191ccc4580ba8b021fbb5c9
+    - 549f8ac69a233784297daf24f40e1330
+    - dfb211cce7ead8d43b30aa6327b258f5
+    - 0768316dc498ebc4ea5a347e064911d7
+    - 4c226ba1500a35b4caf1f758d330bb19
+    - 8f2f9b75480df0946b06d15e5fe0fbd0
+    - 544e4e04fe96cfb48b6a058dc95d859f
+    - 93c1617cc24ce594ba0234c1320918ce
+    spriteTextureTimeStamps:
+    - 1515626240.89297
+    - 1515626240.91049
+    - 1515626240.90498
+    - 1515626201.85409
+    - 1515626240.94401
+    - 1515626201.85559
+    - 1515626240.86045
+    - 1515626201.85709
+    - 1515626240.88747
+    - 1515626240.93851
+    - 1515626201.84108
+    - 1515626240.9255
+    - 1498166762.95034
+    - 1498166762.97858
+    - 1498166762.98342
+    - 1498166762.99847
+    - 1498166762.98846
+    - 1498166762.96343
+    - 1498166762.96863
+    - 1498166762.97359
+    - 1498166762.99297
+    - 1498166762.95636
+    - 1498166763.00295
+    - 1498166763.02976
+    - 1498166763.04227
+    - 1498166763.02025
+    - 1498166763.01046
+    - 1498166763.03377
+    - 1498166763.01546
+    - 1498166763.03827
+    - 1498166763.02426
+    - 1498166763.04778
+    - 1515626201.81356
+    - 1515626201.81506
+    - 1515626201.82106
+    - 1515626201.82357
+    - 1515626201.84458
+    - 1515626201.85859
+    - 1515626201.86009
+    - 1515626201.81006
+    - 1515626201.80806
+    - 1515626201.81206
+    - 1515626201.84808
+    - 1515626201.83808
+    - 1515626201.84308
+    - 1515626201.83157
+    - 1515626201.84608
+    - 1515626201.82507
+    - 1515626201.82607
+    - 1515626201.82807
+    - 1515626201.83007
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: 
+    spriteCollectionGUID: 
+    spriteCollectionDataGUID: ade4cda57d993c04b9342b9e68997086
+    spriteNames: []
+    spriteTextureGUIDs: []
+    spriteTextureTimeStamps: []
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 0
+  - name: 
+    spriteCollectionGUID: 
+    spriteCollectionDataGUID: 01369d7df542da0459f1b7bfff663ec9
+    spriteNames: []
+    spriteTextureGUIDs: []
+    spriteTextureTimeStamps: []
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 0
   - name: ZoruCollection
     spriteCollectionGUID: 429b5b5214412c743ac54505caa8733f
     spriteCollectionDataGUID: de5f29d09b9d079439a9c0bd495afa46
@@ -133,18 +368,18 @@ MonoBehaviour:
     - f3e9571e65c750f4ca125d39a2682a38
     - f81fbbe8f6728704c866a38eaa2d267b
     spriteTextureTimeStamps:
-    - 1515620510.87144
-    - 1515620510.89746
-    - 1515620510.88445
+    - 1515626240.89297
+    - 1515626240.91049
+    - 1515626240.90498
     - 0
-    - 1515620510.92098
+    - 1515626240.94401
     - 0
-    - 1515620510.85042
+    - 1515626240.86045
     - 0
-    - 1515620510.86243
-    - 1515620510.91847
+    - 1515626240.88747
+    - 1515626240.93851
     - 0
-    - 1515620510.90697
+    - 1515626240.9255
     - 1498166762.95034
     - 1498166762.97858
     - 1498166762.98342
@@ -169,94 +404,105 @@ MonoBehaviour:
     loadable: 0
     assetName: 
     version: 3
-  - name: EnvironmentCollection
-    spriteCollectionGUID: 97818396db4ce514a858548fdce6fc5a
-    spriteCollectionDataGUID: a5dcceaa5a7f9de438ae8f1c1936e154
+  - name: Zoru2Collection
+    spriteCollectionGUID: 9d8a06dc98c28d748b3078d69cca5bfc
+    spriteCollectionDataGUID: 6c5a326be42b99f46a8701dd6eb62d15
     spriteNames:
-    - checkerboard_test
+    - idle_zoru8
+    - idle_zoru1
+    - idle_zoru2
+    - idle_zoru3
+    - idle_zoru4
+    - idle_zoru5
+    - idle_zoru6
+    - idle_zoru7
+    - k_attack_zoru23
+    - k_attack_zoru1
+    - k_attack_zoru2
+    - k_attack_zoru3
+    - k_attack_zoru4
+    - k_attack_zoru5
+    - k_attack_zoru6
+    - k_attack_zoru7
+    - k_attack_zoru8
+    - k_attack_zoru9
+    - k_attack_zoru10
+    - k_attack_zoru11
+    - k_attack_zoru12
+    - k_attack_zoru13
+    - k_attack_zoru14
+    - k_attack_zoru15
+    - k_attack_zoru16
+    - k_attack_zoru17
+    - k_attack_zoru18
+    - k_attack_zoru19
+    - k_attack_zoru20
+    - k_attack_zoru21
+    - k_attack_zoru22
     spriteTextureGUIDs:
-    - 3241a6e6b7877ab42a415dca5a2e994a
+    - c6d8a7cef4ceef344a7898208617661a
+    - d852c777641342649b9800f417579c5c
+    - da0864eabb94ec24990d0412e5e3dd86
+    - 6312f31d1aafd994ba1c509978095f96
+    - 96be1d392bf9c6441a076219120db08b
+    - 8ffdef1449c64d943952e3f19107b4d8
+    - fdfb1eaf9a33efc47863a2938bb9e043
+    - e68d7984b7787cd4d9289ce85c715f89
+    - 56b08843d3e91004fa5a52f16ea29212
+    - 513ebffc0554e3545a53702ee1bfd846
+    - dfb211cce7ead8d43b30aa6327b258f5
+    - 0768316dc498ebc4ea5a347e064911d7
+    - 78e69dd8bff572248ad482a946feb8ff
+    - 21ffeb11288acc14292be34e0f08d792
+    - eb99d66cb17a60f45b837bcc6aa7e639
+    - 98c42cdceaff7824ba4f8f0adb43f805
+    - f39d032237326d64eae753138cc5dcd1
+    - 1d0d902961ea6e54d823fcc77e6ff3ef
+    - e901eb8a67d0ab141999a69e9b02dc21
+    - 9ab534e687ad18a46b62dffd307a993f
+    - 3fca9bc826fcbeb45ab0f6c37950925a
+    - b8f7b827b42cc284dbcfc3b5964b3457
+    - 2835e437faf316140a76be22766dd457
+    - 63531c46fc92c2a40835ad346a3247c2
+    - 4c226ba1500a35b4caf1f758d330bb19
+    - 8f2f9b75480df0946b06d15e5fe0fbd0
+    - 544e4e04fe96cfb48b6a058dc95d859f
+    - 93c1617cc24ce594ba0234c1320918ce
+    - 2b74e9f33191ccc4580ba8b021fbb5c9
+    - 9998bfbd86643514c9c63dcf4e01d9e7
+    - 549f8ac69a233784297daf24f40e1330
     spriteTextureTimeStamps:
-    - 1430953908.81836
-    managedSpriteCollection: 0
-    loadable: 0
-    assetName: 
-    version: 3
-  - name: IdolCollection
-    spriteCollectionGUID: d4b662b986fa59a4c98f2f39f3419b70
-    spriteCollectionDataGUID: 5bc248ab0a7d6694ba8bf38d69f05d96
-    spriteNames:
-    - idle
-    spriteTextureGUIDs:
-    - dc0748396cb4e1b4f930505c2c4a42c2
-    spriteTextureTimeStamps:
-    - 1430953906.44522
-    managedSpriteCollection: 0
-    loadable: 0
-    assetName: 
-    version: 3
-  - name: MavCollection
-    spriteCollectionGUID: 80bd7c1378db3234daa1d8e9385b923c
-    spriteCollectionDataGUID: c8cab479e6cbfaf4987fee10c4f55362
-    spriteNames:
-    - idle_mav_lower_right_leg
-    - idle_mav_lower_left_leg
-    - idle_mav_left_arm
-    - idle_mav_upper_right_arm
-    - idle_mav_upper_torso
-    - idle_mav_lower_right_arm
-    - idle_mav_upper_left_leg
-    - idle_mav_head
-    - idle_mav_upper_right_leg
-    - idle_mav_lower_torso
-    spriteTextureGUIDs:
-    - 1bcc53282de963449a08de6a61b25572
-    - 1e14802fd4028044d88ec250151e2ad6
-    - 262e578e226fc164a9bfe81bd1e18b49
-    - 32035d008edaa7946852955db519c3c6
-    - 43b18111126f06d4a943b3a873597900
-    - 69bc00bb1654a374aa7a0db05ccaa0e2
-    - 6b3e1e3f9ddbebf4f978c3a8ed648ba4
-    - a76ba6855e9f1f34eadf1bd93da2df0a
-    - e51c7d8b78626b84a877055d5e5effa5
-    - e7bd04f6d3c9df642a72d2cf864b979c
-    spriteTextureTimeStamps:
-    - 1430953906.90924
-    - 1430953906.88324
-    - 1430953906.86624
-    - 1430953906.94525
-    - 1430953906.96825
-    - 1430953906.89624
-    - 1430953906.93325
-    - 1430953906.85224
-    - 1430953906.95525
-    - 1430953906.92025
-    managedSpriteCollection: 0
-    loadable: 0
-    assetName: 
-    version: 3
-  - name: MovShadedCollection
-    spriteCollectionGUID: fad80e347312ea045ab4f47de3c12ba8
-    spriteCollectionDataGUID: 479888136fa93e1449d2d6a59f41609b
-    spriteNames:
-    - MavShaded
-    spriteTextureGUIDs:
-    - 8f08f9229c5716a4088817d597da49fa
-    spriteTextureTimeStamps:
-    - 1498492335.03826
-    managedSpriteCollection: 0
-    loadable: 0
-    assetName: 
-    version: 3
-  - name: MavUnshadeCollection
-    spriteCollectionGUID: 1085b7804bbd59043b5d306ad2a3f0a2
-    spriteCollectionDataGUID: fb0a6ff3677a2324ca7c52b840c93a84
-    spriteNames:
-    - MavUnshaded
-    spriteTextureGUIDs:
-    - 93c725aa6ba9ec3409595ab4f75f703c
-    spriteTextureTimeStamps:
-    - 1498492335.04827
+    - 1515626240.94401
+    - 1515626240.86045
+    - 1515626240.88747
+    - 1515626240.89297
+    - 1515626240.90498
+    - 1515626240.91049
+    - 1515626240.9255
+    - 1515626240.93851
+    - 1515626201.84458
+    - 1515626201.80806
+    - 1515626201.83157
+    - 1515626201.84608
+    - 1515626201.84808
+    - 1515626201.85409
+    - 1515626201.85559
+    - 1515626201.85709
+    - 1515626201.85859
+    - 1515626201.86009
+    - 1515626201.81006
+    - 1515626201.81206
+    - 1515626201.81356
+    - 1515626201.81506
+    - 1515626201.82106
+    - 1515626201.82357
+    - 1515626201.82507
+    - 1515626201.82607
+    - 1515626201.82807
+    - 1515626201.83007
+    - 1515626201.83808
+    - 1515626201.84108
+    - 1515626201.84308
     managedSpriteCollection: 0
     loadable: 0
     assetName: 
