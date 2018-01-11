@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2013 Tasharen Entertainment
+// Copyright Â© 2011-2015 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -16,34 +16,28 @@ public class LanguageSelection : MonoBehaviour
 {
 	UIPopupList mList;
 
-	void Start ()
+	void Awake ()
 	{
 		mList = GetComponent<UIPopupList>();
-		UpdateList();
-		mList.eventReceiver = gameObject;
-		mList.functionName = "OnLanguageSelection";
+		Refresh();
 	}
 
-	void UpdateList ()
+	void Start () { EventDelegate.Add(mList.onChange, delegate() { Localization.language = UIPopupList.current.value; }); }
+
+	/// <summary>
+	/// Immediately refresh the list of known languages.
+	/// </summary>
+
+	public void Refresh ()
 	{
-		if (Localization.instance != null && Localization.instance.languages != null)
+		if (mList != null && Localization.knownLanguages != null)
 		{
 			mList.items.Clear();
 
-			for (int i = 0, imax = Localization.instance.languages.Length; i < imax; ++i)
-			{
-				TextAsset asset = Localization.instance.languages[i];
-				if (asset != null) mList.items.Add(asset.name);
-			}
-			mList.selection = Localization.instance.currentLanguage;
-		}
-	}
+			for (int i = 0, imax = Localization.knownLanguages.Length; i < imax; ++i)
+				mList.items.Add(Localization.knownLanguages[i]);
 
-	void OnLanguageSelection (string language)
-	{
-		if (Localization.instance != null)
-		{
-			Localization.instance.currentLanguage = language;
+			mList.value = Localization.language;
 		}
 	}
 }
