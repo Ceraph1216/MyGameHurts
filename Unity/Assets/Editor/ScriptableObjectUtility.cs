@@ -19,10 +19,10 @@ public static class ScriptableObjectUtility
         }
 		
         string fileName;
-		if (asset is ManeuverInfo) 
+		if (asset is AttackInfo) 
 		{
-			path = "Assets/Resources/Data/Maneuvers";
-			fileName = "New Maneuver";
+			path = "Assets/Resources/Data/Attacks";
+			fileName = "New Attack";
 		}
 		else
 		{
@@ -36,9 +36,9 @@ public static class ScriptableObjectUtility
         Selection.activeObject = asset;
         EditorUtility.FocusProjectWindow ();
 		
-		if (asset is ManeuverInfo) 
+		if (asset is AttackInfo) 
 		{
-			ManeuverEditorWindow.Init();
+			AttackEditorWindow.Init();
 		}
     }
 }

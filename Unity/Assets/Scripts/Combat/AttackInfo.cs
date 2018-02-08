@@ -23,13 +23,13 @@ public enum InputType
 }
 
 [System.Serializable]
-public class ManeuverInfo : ScriptableObject
+public class AttackInfo : ScriptableObject
 {
-	public string maneuverName;
+	public string attackName;
 	public string animationName;
 	public AnimationCurve movementCurve;
 	public AnimationCurve rotationCurve;
 	public InputType inputType;
-	public ManeuverInfo previousManeuver;
+	public AttackInfo previousAttack;
 	public Hit[] hits;
 }

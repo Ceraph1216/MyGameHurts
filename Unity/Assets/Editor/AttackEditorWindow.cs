@@ -4,11 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class ManeuverEditorWindow : EditorWindow
+public class AttackEditorWindow : EditorWindow
 {
-	public static ManeuverEditorWindow maneuverEditorWindow;
-	public static ManeuverInfo sentManeuverInfo;
-	private ManeuverInfo _maneuverInfo;
+	public static AttackEditorWindow attackEditorWindow;
+	public static AttackInfo sentAttackInfo;
+	private AttackInfo _attackInfo;
 
 	private Vector2 scrollPos;
 
@@ -27,12 +27,12 @@ public class ManeuverEditorWindow : EditorWindow
 
 	private List<Hit> _hits;
 
-	[MenuItem("Window/Data Type Editors/Maneuver Editor")]
+	[MenuItem("Window/Data Type Editors/Attack Editor")]
 	public static void Init()
 	{
-		maneuverEditorWindow = EditorWindow.GetWindow<ManeuverEditorWindow>(false, "Maneuver", true);
-		maneuverEditorWindow.Show();
-		maneuverEditorWindow.Populate();
+		attackEditorWindow = EditorWindow.GetWindow<AttackEditorWindow>(false, "Attack", true);
+		attackEditorWindow.Show();
+		attackEditorWindow.Populate();
 	}
 
 	void OnSelectionChange()
@@ -71,21 +71,21 @@ public class ManeuverEditorWindow : EditorWindow
 		labelStyle.normal.textColor = Color.white;
 		
 		
-		if (sentManeuverInfo != null){
-			EditorGUIUtility.PingObject( sentManeuverInfo );
-			Selection.activeObject = sentManeuverInfo;
-			sentManeuverInfo = null;
+		if (sentAttackInfo != null){
+			EditorGUIUtility.PingObject( sentAttackInfo );
+			Selection.activeObject = sentAttackInfo;
+			sentAttackInfo = null;
 		}
 		
-		Object[] selection = Selection.GetFiltered(typeof(ManeuverInfo), SelectionMode.Assets);
+		Object[] selection = Selection.GetFiltered(typeof(AttackInfo), SelectionMode.Assets);
 		if (selection.Length > 0){
 			if (selection[0] == null) return;
-			_maneuverInfo = (ManeuverInfo) selection[0];
+			_attackInfo = (AttackInfo) selection[0];
 		}
 
-		if (_maneuverInfo.hits != null)
+		if (_attackInfo.hits != null)
 		{
-			_hits = _maneuverInfo.hits.ToList();
+			_hits = _attackInfo.hits.ToList();
 		}
 		else
 		{
@@ -96,14 +96,14 @@ public class ManeuverEditorWindow : EditorWindow
 
 	public void OnGUI()
 	{
-		if (_maneuverInfo == null)
+		if (_attackInfo == null)
 		{
 			GUILayout.BeginHorizontal("GroupBox");
 			GUILayout.Label("Select a maneuver file or create a new maneuver.","CN EntryInfo");
 			GUILayout.EndHorizontal();
 			EditorGUILayout.Space();
 			if (GUILayout.Button("Create new maneuver"))
-				ScriptableObjectUtility.CreateAsset<ManeuverInfo> ();
+				ScriptableObjectUtility.CreateAsset<AttackInfo> ();
 			return;
 		}
 
@@ -116,29 +116,29 @@ public class ManeuverEditorWindow : EditorWindow
 
 		scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
 		{
-			SerializedObject l_serializedManeuver = new SerializedObject(_maneuverInfo);
+			SerializedObject l_serializedAttack = new SerializedObject(_attackInfo);
 
 			// Draw the message data
 
 			EditorGUILayout.BeginVertical();
 			{
-				if (_maneuverInfo.movementCurve == null) 
+				if (_attackInfo.movementCurve == null) 
 				{
-					_maneuverInfo.movementCurve = new AnimationCurve ();
+					_attackInfo.movementCurve = new AnimationCurve ();
 				}
 
-				if (_maneuverInfo.rotationCurve == null) 
+				if (_attackInfo.rotationCurve == null) 
 				{
-					_maneuverInfo.rotationCurve = new AnimationCurve ();
+					_attackInfo.rotationCurve = new AnimationCurve ();
 				}
 
 				EditorGUIUtility.labelWidth = 90;
-				_maneuverInfo.maneuverName = EditorGUILayout.TextField("Name:", _maneuverInfo.maneuverName);
-				_maneuverInfo.animationName = EditorGUILayout.TextField("Animation Name:", _maneuverInfo.animationName);
-				_maneuverInfo.movementCurve = EditorGUILayout.CurveField ("Movement Curve:", _maneuverInfo.movementCurve);
-				_maneuverInfo.rotationCurve = EditorGUILayout.CurveField ("Rotation Curve:", _maneuverInfo.rotationCurve);
-				_maneuverInfo.inputType = (InputType) EditorGUILayout.EnumPopup ("Input Type:", _maneuverInfo.inputType);
-				_maneuverInfo.previousManeuver = (ManeuverInfo) EditorGUILayout.ObjectField("Previous Maneuver:", _maneuverInfo.previousManeuver, typeof(ManeuverInfo), false);
+				_attackInfo.attackName = EditorGUILayout.TextField("Name:", _attackInfo.attackName);
+				_attackInfo.animationName = EditorGUILayout.TextField("Animation Name:", _attackInfo.animationName);
+				_attackInfo.movementCurve = EditorGUILayout.CurveField ("Movement Curve:", _attackInfo.movementCurve);
+				_attackInfo.rotationCurve = EditorGUILayout.CurveField ("Rotation Curve:", _attackInfo.rotationCurve);
+				_attackInfo.inputType = (InputType) EditorGUILayout.EnumPopup ("Input Type:", _attackInfo.inputType);
+				_attackInfo.previousAttack = (AttackInfo) EditorGUILayout.ObjectField("Previous Attack:", _attackInfo.previousAttack, typeof(AttackInfo), false);
 				ShowHits();
 			}EditorGUILayout.EndVertical();
 
@@ -149,8 +149,8 @@ public class ManeuverEditorWindow : EditorWindow
 
 		if (GUI.changed) 
 		{
-			Undo.RecordObject(_maneuverInfo, "Maneuver Editor Modify");
-			EditorUtility.SetDirty(_maneuverInfo);
+			Undo.RecordObject(_attackInfo, "Attack Editor Modify");
+			EditorUtility.SetDirty(_attackInfo);
 		}
 	}
 
@@ -160,7 +160,7 @@ public class ManeuverEditorWindow : EditorWindow
 	
 	/*void OnSelectAtlas (Object obj)
 	{
-		SerializedObject l_serializedMessage = new SerializedObject(_maneuverInfo);
+		SerializedObject l_serializedMessage = new SerializedObject(_attackInfo);
 		l_serializedMessage.Update();
 		SerializedProperty sp = l_serializedMessage.FindProperty("atlas");
 		sp.objectReferenceValue = obj;
@@ -168,8 +168,8 @@ public class ManeuverEditorWindow : EditorWindow
 		NGUITools.SetDirty(l_serializedMessage.targetObject);
 		NGUISettings.atlas = obj as UIAtlas;
 
-		Undo.RecordObject(_maneuverInfo, "Message Editor Modify");
-		EditorUtility.SetDirty(_maneuverInfo);
+		Undo.RecordObject(_attackInfo, "Message Editor Modify");
+		EditorUtility.SetDirty(_attackInfo);
 		Repaint();
 	}*/
 	
@@ -179,15 +179,15 @@ public class ManeuverEditorWindow : EditorWindow
 	
 	/*void SelectSprite (string spriteName)
 	{
-		SerializedObject l_serializedMessage = new SerializedObject(_maneuverInfo);
+		SerializedObject l_serializedMessage = new SerializedObject(_attackInfo);
 		l_serializedMessage.Update();
-		_maneuverInfo.spriteName = spriteName;
+		_attackInfo.spriteName = spriteName;
 		l_serializedMessage.ApplyModifiedProperties();
 //		NGUITools.SetDirty(l_serializedMessage.targetObject);
 		NGUISettings.selectedSprite = spriteName;
 
-		Undo.RecordObject(_maneuverInfo, "Message Editor Modify");
-		EditorUtility.SetDirty(_maneuverInfo);
+		Undo.RecordObject(_attackInfo, "Message Editor Modify");
+		EditorUtility.SetDirty(_attackInfo);
 		Repaint();
 	}*/
 
@@ -197,13 +197,13 @@ public class ManeuverEditorWindow : EditorWindow
 	
 	/*public void PreviewSprite (Rect p_rect)
 	{
-		if (_maneuverInfo.atlas == null) return;
+		if (_attackInfo.atlas == null) return;
 
-		UISpriteData l_spriteData = _maneuverInfo.atlas.GetSprite(_maneuverInfo.spriteName);
+		UISpriteData l_spriteData = _attackInfo.atlas.GetSprite(_attackInfo.spriteName);
 
 		if (l_spriteData == null) return;
 
-		Material l_atlasMaterial = _maneuverInfo.atlas.spriteMaterial;
+		Material l_atlasMaterial = _attackInfo.atlas.spriteMaterial;
 		Texture2D l_tex = l_atlasMaterial.mainTexture as Texture2D;
 
 		if (l_tex == null) return;
@@ -277,8 +277,8 @@ public class ManeuverEditorWindow : EditorWindow
 			_hits.Add(l_newHit);
 		}
 
-		_maneuverInfo.hits = _hits.ToArray();
-		EditorUtility.SetDirty(_maneuverInfo);
+		_attackInfo.hits = _hits.ToArray();
+		EditorUtility.SetDirty(_attackInfo);
 		Repaint();
 	}
 
