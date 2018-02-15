@@ -115,6 +115,129 @@ MonoBehaviour:
     loadable: 0
     assetName: 
     version: 3
+  - name: Zoru2Collection
+    spriteCollectionGUID: 9d8a06dc98c28d748b3078d69cca5bfc
+    spriteCollectionDataGUID: 6c5a326be42b99f46a8701dd6eb62d15
+    spriteNames:
+    - idle_zoru8
+    - idle_zoru1
+    - idle_zoru2
+    - idle_zoru3
+    - idle_zoru4
+    - idle_zoru5
+    - idle_zoru6
+    - idle_zoru7
+    - k_attack_zoru23
+    - k_attack_zoru1
+    - k_attack_zoru2
+    - k_attack_zoru3
+    - k_attack_zoru4
+    - k_attack_zoru5
+    - k_attack_zoru6
+    - k_attack_zoru7
+    - k_attack_zoru8
+    - k_attack_zoru9
+    - k_attack_zoru10
+    - k_attack_zoru11
+    - k_attack_zoru12
+    - k_attack_zoru13
+    - k_attack_zoru14
+    - k_attack_zoru15
+    - k_attack_zoru16
+    - k_attack_zoru17
+    - k_attack_zoru18
+    - k_attack_zoru19
+    - k_attack_zoru20
+    - k_attack_zoru21
+    - k_attack_zoru22
+    spriteTextureGUIDs:
+    - c6d8a7cef4ceef344a7898208617661a
+    - d852c777641342649b9800f417579c5c
+    - da0864eabb94ec24990d0412e5e3dd86
+    - 6312f31d1aafd994ba1c509978095f96
+    - 96be1d392bf9c6441a076219120db08b
+    - 8ffdef1449c64d943952e3f19107b4d8
+    - fdfb1eaf9a33efc47863a2938bb9e043
+    - e68d7984b7787cd4d9289ce85c715f89
+    - 56b08843d3e91004fa5a52f16ea29212
+    - 513ebffc0554e3545a53702ee1bfd846
+    - dfb211cce7ead8d43b30aa6327b258f5
+    - 0768316dc498ebc4ea5a347e064911d7
+    - 78e69dd8bff572248ad482a946feb8ff
+    - 21ffeb11288acc14292be34e0f08d792
+    - eb99d66cb17a60f45b837bcc6aa7e639
+    - 98c42cdceaff7824ba4f8f0adb43f805
+    - f39d032237326d64eae753138cc5dcd1
+    - 1d0d902961ea6e54d823fcc77e6ff3ef
+    - e901eb8a67d0ab141999a69e9b02dc21
+    - 9ab534e687ad18a46b62dffd307a993f
+    - 3fca9bc826fcbeb45ab0f6c37950925a
+    - b8f7b827b42cc284dbcfc3b5964b3457
+    - 2835e437faf316140a76be22766dd457
+    - 63531c46fc92c2a40835ad346a3247c2
+    - 4c226ba1500a35b4caf1f758d330bb19
+    - 8f2f9b75480df0946b06d15e5fe0fbd0
+    - 544e4e04fe96cfb48b6a058dc95d859f
+    - 93c1617cc24ce594ba0234c1320918ce
+    - 2b74e9f33191ccc4580ba8b021fbb5c9
+    - 9998bfbd86643514c9c63dcf4e01d9e7
+    - 549f8ac69a233784297daf24f40e1330
+    spriteTextureTimeStamps:
+    - 1518652314.81607
+    - 1515626240.86045
+    - 1515626240.88747
+    - 1518652314.80406
+    - 1518652314.80656
+    - 1518652314.80856
+    - 1518652314.81107
+    - 1518652314.81307
+    - 1515626201.84458
+    - 1515626201.80806
+    - 1515626201.83157
+    - 1515626201.84608
+    - 1515626201.84808
+    - 1515626201.85409
+    - 1515626201.85559
+    - 1515626201.85709
+    - 1515626201.85859
+    - 1515626201.86009
+    - 1515626201.81006
+    - 1515626201.81206
+    - 1515626201.81356
+    - 1515626201.81506
+    - 1515626201.82106
+    - 1515626201.82357
+    - 1515626201.82507
+    - 1515626201.82607
+    - 1515626201.82807
+    - 1515626201.83007
+    - 1515626201.83808
+    - 1515626201.84108
+    - 1515626201.84308
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: 
+    spriteCollectionGUID: 
+    spriteCollectionDataGUID: ade4cda57d993c04b9342b9e68997086
+    spriteNames: []
+    spriteTextureGUIDs: []
+    spriteTextureTimeStamps: []
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 0
+  - name: 
+    spriteCollectionGUID: 
+    spriteCollectionDataGUID: 01369d7df542da0459f1b7bfff663ec9
+    spriteNames: []
+    spriteTextureGUIDs: []
+    spriteTextureTimeStamps: []
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 0
   - name: ZoruCollection
     spriteCollectionGUID: 429b5b5214412c743ac54505caa8733f
     spriteCollectionDataGUID: d245b65eb58066a4789eb0075fac6efb
@@ -223,18 +346,18 @@ MonoBehaviour:
     - 544e4e04fe96cfb48b6a058dc95d859f
     - 93c1617cc24ce594ba0234c1320918ce
     spriteTextureTimeStamps:
-    - 1515626240.89297
-    - 1515626240.91049
-    - 1515626240.90498
+    - 1518652314.80406
+    - 1518652314.80856
+    - 1518652314.80656
     - 1515626201.85409
-    - 1515626240.94401
+    - 1518652314.81607
     - 1515626201.85559
     - 1515626240.86045
     - 1515626201.85709
     - 1515626240.88747
-    - 1515626240.93851
+    - 1518652314.81307
     - 1515626201.84108
-    - 1515626240.9255
+    - 1518652314.81107
     - 1498166762.95034
     - 1498166762.97858
     - 1498166762.98342
@@ -280,17 +403,7 @@ MonoBehaviour:
     version: 3
   - name: 
     spriteCollectionGUID: 
-    spriteCollectionDataGUID: ade4cda57d993c04b9342b9e68997086
-    spriteNames: []
-    spriteTextureGUIDs: []
-    spriteTextureTimeStamps: []
-    managedSpriteCollection: 0
-    loadable: 0
-    assetName: 
-    version: 0
-  - name: 
-    spriteCollectionGUID: 
-    spriteCollectionDataGUID: 01369d7df542da0459f1b7bfff663ec9
+    spriteCollectionDataGUID: beac8d223d394ed4297263c44bc40cdf
     spriteNames: []
     spriteTextureGUIDs: []
     spriteTextureTimeStamps: []
@@ -368,18 +481,18 @@ MonoBehaviour:
     - f3e9571e65c750f4ca125d39a2682a38
     - f81fbbe8f6728704c866a38eaa2d267b
     spriteTextureTimeStamps:
-    - 1515626240.89297
-    - 1515626240.91049
-    - 1515626240.90498
+    - 1518652314.80406
+    - 1518652314.80856
+    - 1518652314.80656
     - 0
-    - 1515626240.94401
+    - 1518652314.81607
     - 0
     - 1515626240.86045
     - 0
     - 1515626240.88747
-    - 1515626240.93851
+    - 1518652314.81307
     - 0
-    - 1515626240.9255
+    - 1518652314.81107
     - 1498166762.95034
     - 1498166762.97858
     - 1498166762.98342
@@ -400,109 +513,6 @@ MonoBehaviour:
     - 1498166763.03827
     - 1498166763.02426
     - 1498166763.04778
-    managedSpriteCollection: 0
-    loadable: 0
-    assetName: 
-    version: 3
-  - name: Zoru2Collection
-    spriteCollectionGUID: 9d8a06dc98c28d748b3078d69cca5bfc
-    spriteCollectionDataGUID: 6c5a326be42b99f46a8701dd6eb62d15
-    spriteNames:
-    - idle_zoru8
-    - idle_zoru1
-    - idle_zoru2
-    - idle_zoru3
-    - idle_zoru4
-    - idle_zoru5
-    - idle_zoru6
-    - idle_zoru7
-    - k_attack_zoru23
-    - k_attack_zoru1
-    - k_attack_zoru2
-    - k_attack_zoru3
-    - k_attack_zoru4
-    - k_attack_zoru5
-    - k_attack_zoru6
-    - k_attack_zoru7
-    - k_attack_zoru8
-    - k_attack_zoru9
-    - k_attack_zoru10
-    - k_attack_zoru11
-    - k_attack_zoru12
-    - k_attack_zoru13
-    - k_attack_zoru14
-    - k_attack_zoru15
-    - k_attack_zoru16
-    - k_attack_zoru17
-    - k_attack_zoru18
-    - k_attack_zoru19
-    - k_attack_zoru20
-    - k_attack_zoru21
-    - k_attack_zoru22
-    spriteTextureGUIDs:
-    - c6d8a7cef4ceef344a7898208617661a
-    - d852c777641342649b9800f417579c5c
-    - da0864eabb94ec24990d0412e5e3dd86
-    - 6312f31d1aafd994ba1c509978095f96
-    - 96be1d392bf9c6441a076219120db08b
-    - 8ffdef1449c64d943952e3f19107b4d8
-    - fdfb1eaf9a33efc47863a2938bb9e043
-    - e68d7984b7787cd4d9289ce85c715f89
-    - 56b08843d3e91004fa5a52f16ea29212
-    - 513ebffc0554e3545a53702ee1bfd846
-    - dfb211cce7ead8d43b30aa6327b258f5
-    - 0768316dc498ebc4ea5a347e064911d7
-    - 78e69dd8bff572248ad482a946feb8ff
-    - 21ffeb11288acc14292be34e0f08d792
-    - eb99d66cb17a60f45b837bcc6aa7e639
-    - 98c42cdceaff7824ba4f8f0adb43f805
-    - f39d032237326d64eae753138cc5dcd1
-    - 1d0d902961ea6e54d823fcc77e6ff3ef
-    - e901eb8a67d0ab141999a69e9b02dc21
-    - 9ab534e687ad18a46b62dffd307a993f
-    - 3fca9bc826fcbeb45ab0f6c37950925a
-    - b8f7b827b42cc284dbcfc3b5964b3457
-    - 2835e437faf316140a76be22766dd457
-    - 63531c46fc92c2a40835ad346a3247c2
-    - 4c226ba1500a35b4caf1f758d330bb19
-    - 8f2f9b75480df0946b06d15e5fe0fbd0
-    - 544e4e04fe96cfb48b6a058dc95d859f
-    - 93c1617cc24ce594ba0234c1320918ce
-    - 2b74e9f33191ccc4580ba8b021fbb5c9
-    - 9998bfbd86643514c9c63dcf4e01d9e7
-    - 549f8ac69a233784297daf24f40e1330
-    spriteTextureTimeStamps:
-    - 1515626240.94401
-    - 1515626240.86045
-    - 1515626240.88747
-    - 1515626240.89297
-    - 1515626240.90498
-    - 1515626240.91049
-    - 1515626240.9255
-    - 1515626240.93851
-    - 1515626201.84458
-    - 1515626201.80806
-    - 1515626201.83157
-    - 1515626201.84608
-    - 1515626201.84808
-    - 1515626201.85409
-    - 1515626201.85559
-    - 1515626201.85709
-    - 1515626201.85859
-    - 1515626201.86009
-    - 1515626201.81006
-    - 1515626201.81206
-    - 1515626201.81356
-    - 1515626201.81506
-    - 1515626201.82106
-    - 1515626201.82357
-    - 1515626201.82507
-    - 1515626201.82607
-    - 1515626201.82807
-    - 1515626201.83007
-    - 1515626201.83808
-    - 1515626201.84108
-    - 1515626201.84308
     managedSpriteCollection: 0
     loadable: 0
     assetName: 
