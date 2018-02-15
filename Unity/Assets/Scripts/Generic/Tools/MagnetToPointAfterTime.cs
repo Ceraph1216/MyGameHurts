@@ -57,12 +57,12 @@ public class MagnetToPointAfterTime : MonoBehaviour
 		currentHookIndex = 0;
 		active = false;
 		currentHookPoint = allHookPoints[currentHookIndex];
-		SoftPauseScript.instance.SoftUpdate += SoftUpdate;
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 	
 	void OnDisable()
 	{
-		SoftPauseScript.instance.SoftUpdate -= SoftUpdate;
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 	
 	void SoftUpdate (GameObject dispatcher) 

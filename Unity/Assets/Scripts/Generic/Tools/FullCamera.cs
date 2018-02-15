@@ -37,13 +37,13 @@ public class FullCamera : MonoBehaviour
 	void OnEnable()
 	{
 		//SoftPauseScript.instance.SoftUpdate += SoftUpdate;
-		SoftPauseScript.instance.SoftFixedUpdate += SoftLateUpdate;
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.FixedSoftUpdate, SoftLateUpdate);
 	}
 	
 	void Disable()
 	{
 		//SoftPauseScript.instance.SoftUpdate -= SoftUpdate;
-		SoftPauseScript.instance.SoftFixedUpdate -= SoftLateUpdate;
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.FixedSoftUpdate, SoftLateUpdate);
 	}
 	
 	// Update is called once per frame

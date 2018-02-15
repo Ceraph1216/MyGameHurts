@@ -15,14 +15,14 @@ public class Basic2DGravityScript : MonoBehaviour
 		myRigidbody = GetComponent<Rigidbody2D>();
 	}
 
-	void OnEnable()
+	void OnEnable ()
 	{
-		SoftPauseScript.instance.SoftUpdate += SoftUpdate;
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 
-	void OnDisable()
+	void OnDisable ()
 	{
-		SoftPauseScript.instance.SoftUpdate -= SoftUpdate;
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 	
 	// Update is called once per frame

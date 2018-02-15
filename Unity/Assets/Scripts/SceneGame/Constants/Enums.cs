@@ -42,4 +42,29 @@ namespace Enums
 	{
 		None
 	}
+
+	public enum GestureType
+	{
+		None,
+		Swipe,
+		DoubleTap,
+		Press,
+		Release
+	}
+
+	public enum UpdateType
+	{
+		InitialSoftUpdate,
+		InitialSoftPause,
+		EarlySoftUpdate,
+		EarlySoftPause,
+		SoftUpdate,
+		SoftPause,
+		FixedSoftUpdate,
+		FixedSoftPause,
+		LateSoftUpdate,
+		LateSoftPause,
+		FinalSoftUpdate,
+		FinalSoftPause
+	}
 }
