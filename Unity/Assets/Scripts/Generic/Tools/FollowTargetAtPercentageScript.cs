@@ -30,14 +30,14 @@ public class FollowTargetAtPercentageScript : MonoBehaviour
 	void OnEnable ()
 	{
 		// Set up update event listeners
-		 SoftPauseScript.instance.SoftUpdate += SoftUpdate;
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 		Initialize();
 	}
 	
 	void OnDisable()
 	{
 		// Make sure the update function is removed from the delegate when the script is not running
-		SoftPauseScript.instance.SoftUpdate -= SoftUpdate;
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 	
 	public void Initialize()

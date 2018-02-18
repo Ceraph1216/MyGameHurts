@@ -9,12 +9,12 @@ public class DisableAfterDelayScript : MonoBehaviour
 	void OnEnable()
 	{
 		Initialize();
-		SoftPauseScript.instance.SoftUpdate += SoftUpdate;
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 	
 	void OnDisable()
 	{
-		SoftPauseScript.instance.SoftUpdate -= SoftUpdate;
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 	
 	void SoftUpdate (GameObject dispatcher) 

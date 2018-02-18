@@ -35,11 +35,14 @@ public class BasicPlayerMovementScript : MonoBehaviour
 		_hitbox = GetComponent<BoxCollider2D> ();
 	}
 
-	void OnEnable () 
+	void OnEnable ()
 	{
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
+	}
 
-
-		SoftPauseScript.instance.SoftUpdate += SoftUpdate;
+	void OnDisable ()
+	{
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 	
 	// Update is called once per frame

@@ -14,7 +14,7 @@ public class SetPlayerStateScript : MonoBehaviour
 	void OnEnable()
 	{
 		Initialize();
-		SoftPauseScript.instance.SoftUpdate += SoftUpdate;
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 
 	public void Initialize() 
@@ -30,7 +30,7 @@ public class SetPlayerStateScript : MonoBehaviour
 
 	void OnDisable()
 	{
-		SoftPauseScript.instance.SoftUpdate -= SoftUpdate;
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 
 		PlayerStateManager.instance.ChangeGroundState -= ChangeGroundState;
 		PlayerStateManager.instance.ChangeAttackState -= ChangeAttackState;

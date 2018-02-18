@@ -15,12 +15,12 @@ public class SetToTargetPositionScript : MonoBehaviour
 
 	void OnEnable()
 	{
-		SoftPauseScript.instance.SoftUpdate += SoftUpdate;
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 
 	void OnDisable()
 	{
-		SoftPauseScript.instance.SoftUpdate -= SoftUpdate;
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 	
 	// Update is called once per frame

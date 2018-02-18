@@ -29,16 +29,16 @@ public class FollowTargetScript : MonoBehaviour
 	void OnEnable ()
 	{
 		// Set up update event listeners
-		SoftPauseScript.instance.SoftUpdate += SoftUpdate;
-		SoftPauseScript.instance.SoftPause += SoftUpdate;
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftPause, SoftUpdate);
 		Initialize();
 	}
 	
 	void OnDisable()
 	{
 		// Make sure the update function is removed from the delegate when the script is not running
-		SoftPauseScript.instance.SoftUpdate -= SoftUpdate;
-		SoftPauseScript.instance.SoftPause -= SoftUpdate;
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.SoftPause, SoftUpdate);
 	}
 	
 	public void Initialize() 

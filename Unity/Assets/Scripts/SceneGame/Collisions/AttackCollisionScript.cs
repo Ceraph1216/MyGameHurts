@@ -10,13 +10,13 @@ public class AttackCollisionScript : MonoBehaviour
 	void OnEnable()
 	{
 		hasChecked = false;
-		SoftPauseScript.instance.SoftUpdate += SoftUpdate;
+		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 
 	void OnDisable()
 	{
 		hasChecked = false;
-		SoftPauseScript.instance.SoftUpdate -= SoftUpdate;
+		SoftPauseScript.instance.RemoveFromHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 
 	void SoftUpdate(GameObject dispatcher)
