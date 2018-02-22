@@ -18,8 +18,11 @@ public class Hit
 
 public enum InputType
 {
-	Attack1,
-	Attack2
+	None,
+	MoveLeft,
+	MoveRight,
+	LightAttack, //J
+	HeavyAttack //K
 }
 
 [System.Serializable]

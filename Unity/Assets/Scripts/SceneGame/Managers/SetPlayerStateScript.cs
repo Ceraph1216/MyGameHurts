@@ -3,12 +3,41 @@ using System.Collections;
 
 public class SetPlayerStateScript : MonoBehaviour 
 {
-	private Transform myTransform;
 	public tk2dSpriteAnimator myAnimator;
+
+	private InputType _currentInput;
+	public InputType currentInput
+	{
+		get 
+		{
+			return _currentInput;
+		}
+		private set 
+		{
+			_currentInput = value;
+		}
+	}
+
+	private AttackInfo _currentAttack;
+	public AttackInfo currentAttack
+	{
+		get 
+		{
+			return _currentAttack;
+		}
+		private set 
+		{
+			_currentAttack = value;
+		}
+	}
+
+	private Transform myTransform;
+	private AttackList _attackList;
 
 	void Awake()
 	{
 		myTransform = transform;
+		_attackList = GetComponent<AttackList> ();
 	}
 
 	void OnEnable()
@@ -40,7 +69,8 @@ public class SetPlayerStateScript : MonoBehaviour
 
 	void SoftUpdate(GameObject dispatcher)
 	{
-		// We will probably need to check some things here
+		DetermineInput ();
+		ExecuteInput ();
 	}
 
 	private void ChangeGroundState(GameObject dispatcher)
@@ -113,6 +143,11 @@ public class SetPlayerStateScript : MonoBehaviour
 
 	private void ChangeMoving(GameObject dispatcher)
 	{
+		if (PlayerStateManager.instance.currentAttackState != Enums.PlayerAttackState.None) 
+		{
+			return;
+		}
+
 		if (PlayerStateManager.instance.isMoving)
 		{
 			if (PlayerStateManager.instance.currentGroundState == Enums.PlayerGroundState.OnGround)
@@ -132,5 +167,67 @@ public class SetPlayerStateScript : MonoBehaviour
 	private void OnAnimationComplete(tk2dSpriteAnimator anim, tk2dSpriteAnimationClip clip)
 	{
 		// Take care of animation end
+
+		// go to transition
+		if (clip.name.Contains ("Attack") && !clip.name.Contains ("_end")) 
+		{
+			string l_attackEndName = clip.name + "_end";
+			myAnimator.Play (l_attackEndName);
+			PlayerStateManager.instance.currentAttackState = Enums.PlayerAttackState.None;
+		}
+
+		// transition over, go to idle
+		if (clip.name.Contains ("Attack") && clip.name.Contains ("_end")) 
+		{
+			myAnimator.Play ("idle");
+			_currentAttack = null;
+		}
+	}
+
+	private void DetermineInput ()
+	{
+		_currentInput = InputType.None;
+
+		if (PlayerStateManager.instance.currentAttackState == Enums.PlayerAttackState.None) 
+		{
+			if (InputManager.instance.GetLightAttack ()) 
+			{
+				_currentInput = InputType.LightAttack;
+			} 
+			else if (InputManager.instance.GetHeavyAttack ()) 
+			{
+				_currentInput = InputType.HeavyAttack;
+			} 
+			else if (InputManager.instance.GetMovement () < 0) // Moving left
+			{ 
+				_currentInput = InputType.MoveLeft;
+			} 
+			else if (InputManager.instance.GetMovement () > 0) // Moving Right
+			{ 
+				_currentInput = InputType.MoveRight;
+			} 
+		}
+	}
+
+	private void ExecuteInput ()
+	{
+		if (_currentInput == InputType.LightAttack || _currentInput == InputType.HeavyAttack)
+		{
+			Attack();
+		}
+	}
+
+	private void Attack()
+	{
+		AttackInfo l_newAttack = _attackList.GetAttackForInput (_currentInput, _currentAttack);
+
+		if (l_newAttack == null) 
+		{
+			return;
+		}
+
+		_currentAttack = l_newAttack;
+		PlayerStateManager.instance.currentAttackState = Enums.PlayerAttackState.Attacking;
+		myAnimator.Play (_currentAttack.animationName);
 	}
 }

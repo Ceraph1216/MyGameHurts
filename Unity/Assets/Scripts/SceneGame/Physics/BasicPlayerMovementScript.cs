@@ -27,12 +27,14 @@ public class BasicPlayerMovementScript : MonoBehaviour
 	private Rigidbody2D myRigidbody;
 	private Transform myTransform;
 	private BoxCollider2D _hitbox;
+	private SetPlayerStateScript _setPlayerState;
 
 	void Awake ()
 	{
 		myRigidbody = GetComponent<Rigidbody2D>();
 		myTransform = transform;
 		_hitbox = GetComponent<BoxCollider2D> ();
+		_setPlayerState = GetComponent<SetPlayerStateScript> ();
 	}
 
 	void OnEnable ()
@@ -53,8 +55,8 @@ public class BasicPlayerMovementScript : MonoBehaviour
 		// Get current velocity
 		Vector3 newVelocity = myRigidbody.velocity;
 
-		// Listen for button presses
-		if (Input.GetKeyDown(KeyCode.Space))
+		// Do action for current input
+		/*if (Input.GetKeyDown(KeyCode.Space))
 		{
 			if (PlayerStateManager.instance.currentGroundState == Enums.PlayerGroundState.OnGround)
 			{
@@ -62,16 +64,24 @@ public class BasicPlayerMovementScript : MonoBehaviour
 				newVelocity.y =  Constants.JUMP_FORCE;
 				myRigidbody.velocity = newVelocity;
 			}
-		}
+		}*/
 
-		if (Input.GetKeyDown(KeyCode.J))
+
+		// Determine current movement vector based on input
+		float l_currentMovement = 0;
+
+		if (_setPlayerState.currentInput == InputType.MoveLeft) 
 		{
-			Attack();
+			l_currentMovement = -1;
+		} 
+		else if (_setPlayerState.currentInput == InputType.MoveRight) 
+		{
+			l_currentMovement = 1;
 		}
 
 		// Apply horizontal movement
 		newVelocity = myRigidbody.velocity;
-		newVelocity.x =  Input.GetAxis("Horizontal") * Constants.RUN_SPEED;
+		newVelocity.x =  l_currentMovement * Constants.RUN_SPEED;
 
 		// If our front sensor hit something
 		if (isHitForward)
@@ -87,7 +97,7 @@ public class BasicPlayerMovementScript : MonoBehaviour
 		// Make sure the sprite is facing the right way
 		if (mySprite.scale.x > 0) // facing right
 		{
-			if (Input.GetAxis("Horizontal") < 0) // Moving left
+			if (l_currentMovement < 0) // Moving left
 			{
 				Vector3 newScale = mySprite.scale;
 				newScale.x *= -1;
@@ -98,7 +108,7 @@ public class BasicPlayerMovementScript : MonoBehaviour
 
 		if (mySprite.scale.x < 0) // facing left
 		{
-			if (Input.GetAxis("Horizontal") > 0) // Moving right
+			if (l_currentMovement > 0) // Moving right
 			{
 				Vector3 newScale = mySprite.scale;
 				newScale.x *= -1;
@@ -231,10 +241,5 @@ public class BasicPlayerMovementScript : MonoBehaviour
 			isHitForward = true;
 			hitPointForward = hitFB.point;
 		}
-	}
-
-	void Attack()
-	{
-		attackHitbox.SetActive(true);
 	}
 }

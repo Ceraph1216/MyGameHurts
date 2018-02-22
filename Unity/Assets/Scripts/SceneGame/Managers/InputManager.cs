@@ -18,10 +18,8 @@ public class InputManager : MonoBehaviour
 
 	private float _currentXAxis;
 	private bool _isJumpDown;
-	private bool _isSuperJumpDown;
-	private bool _isSlideDown;
-	private bool _isGravityDown;
-	private bool _isShockwaveDown;
+	private bool _isLightAttackDown;
+	private bool _isHeavyAttackDown;
 
 	private Transform _playerTransform;
 
@@ -62,7 +60,27 @@ public class InputManager : MonoBehaviour
 		_currentXAxis = 0;
 	}
 
-	public void OnJumpDown ()
+	public void OnLightAttackDown ()
+	{
+		_isLightAttackDown = true;
+	}
+
+	public void OnLightAttackUp ()
+	{
+		_isLightAttackDown = false;
+	}
+
+	public void OnHeavyAttackDown ()
+	{
+		_isHeavyAttackDown = true;
+	}
+
+	public void OnHeavyAttackUp ()
+	{
+		_isHeavyAttackDown = false;
+	}
+
+	/*public void OnJumpDown ()
 	{
 		_isJumpDown = true;
 	}
@@ -70,47 +88,7 @@ public class InputManager : MonoBehaviour
 	public void OnJumpUp ()
 	{
 		_isJumpDown = false;
-	}
-
-	public void OnSuperJumpDown ()
-	{
-		_isSuperJumpDown = true;
-	}
-
-	public void OnSuperJumpUp ()
-	{
-		_isSuperJumpDown = false;
-	}
-
-	public void OnSlideDown ()
-	{
-		_isSlideDown = true;
-	}
-
-	public void OnSlideUp ()
-	{
-		_isSlideDown = false;
-	}
-
-	public void OnGravityDown ()
-	{
-		_isGravityDown = true;
-	}
-
-	public void OnGravityUp ()
-	{
-		_isGravityDown = false;
-	}
-
-	public void OnShockwaveDown ()
-	{
-		_isShockwaveDown = true;
-	}
-
-	public void OnShockwaveUp ()
-	{
-		_isShockwaveDown = false;
-	}
+	}*/
 
 	public float GetMovement ()
 	{
@@ -132,7 +110,7 @@ public class InputManager : MonoBehaviour
 		return l_horizontal;
 	}
 
-	public bool GetJump ()
+	/*public bool GetJump ()
 	{
 		if (PlatformManager.instance.isMobile) 
 		{
@@ -146,71 +124,35 @@ public class InputManager : MonoBehaviour
 		}
 
 		return Input.GetKeyDown (KeyCode.Space);
-	}
+	}*/
 
-	public bool GetSuperJumpCharging ()
+	public bool GetLightAttack ()
 	{
 		if (PlatformManager.instance.isMobile) 
 		{
-			return _isSuperJumpDown;
-		}
+			bool l_isLightAttackDown = _isLightAttackDown;
 
-		return Input.GetKey (KeyCode.W);
-	}
-
-	public bool GetSuperJumpEnd ()
-	{
-		if (PlatformManager.instance.isMobile) 
-		{
-			return !_isSuperJumpDown;
-		}
-
-		return Input.GetKeyUp (KeyCode.W);
-	}
-
-	public bool GetSlide ()
-	{
-		if (PlatformManager.instance.isMobile) 
-		{
-			bool l_slideDown = _isSlideDown;
-
-			if (l_slideDown) 
+			if (l_isLightAttackDown) 
 			{
-				_isSlideDown = false;
+				_isLightAttackDown = false;
 			}
-			return l_slideDown;
+			return l_isLightAttackDown;
 		}
 
-		return Input.GetKeyDown (KeyCode.S);
+		return Input.GetKeyDown (KeyCode.J);
 	}
 
-	public bool GetGraityFlip ()
+	public bool GetHeavyAttack ()
 	{
 		if (PlatformManager.instance.isMobile) 
 		{
-			bool l_gravityDown = _isGravityDown;
+			bool l_isHeavyAttackDown = _isHeavyAttackDown;
 
-			if (l_gravityDown) 
+			if (l_isHeavyAttackDown) 
 			{
-				_isGravityDown = false;
+				_isHeavyAttackDown = false;
 			}
-			return l_gravityDown;
-		}
-
-		return Input.GetKeyDown (KeyCode.G);
-	}
-
-	public bool GetShockwave ()
-	{
-		if (PlatformManager.instance.isMobile) 
-		{
-			bool l_shockwaveDown = _isShockwaveDown;
-
-			if (l_shockwaveDown) 
-			{
-				_isShockwaveDown = false;
-			}
-			return l_shockwaveDown;
+			return l_isHeavyAttackDown;
 		}
 
 		return Input.GetKeyDown (KeyCode.K);
@@ -219,10 +161,9 @@ public class InputManager : MonoBehaviour
 	public void ResetInputs ()
 	{
 		_currentXAxis = 0;
-		_isGravityDown = false;
 		_isJumpDown = false;
-		_isSuperJumpDown = false;
-		_isSlideDown = false;
+		_isLightAttackDown = false;
+		_isHeavyAttackDown = false;
 	}
 
 	private void CheckGesture ()

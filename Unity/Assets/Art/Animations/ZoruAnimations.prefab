@@ -368,7 +368,7 @@ MonoBehaviour:
       eventFloat: 0
     fps: 30
     loopStart: 0
-    wrapMode: 0
+    wrapMode: 2
   - name: kAttack2_end
     frames:
     - spriteCollection: {fileID: 114678441485892970, guid: 6c5a326be42b99f46a8701dd6eb62d15,
@@ -387,7 +387,7 @@ MonoBehaviour:
       eventFloat: 0
     fps: 30
     loopStart: 0
-    wrapMode: 0
+    wrapMode: 2
   - name: kAttack3_end
     frames:
     - spriteCollection: {fileID: 114678441485892970, guid: 6c5a326be42b99f46a8701dd6eb62d15,
@@ -406,7 +406,7 @@ MonoBehaviour:
       eventFloat: 0
     fps: 30
     loopStart: 0
-    wrapMode: 0
+    wrapMode: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

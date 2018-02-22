@@ -14,14 +14,7 @@ namespace Enums
 	public enum PlayerAttackState
 	{
 		None,
-		J1,
-		J2,
-		JJFinish,
-		JKFinish,
-		K1,
-		K2,
-		KKFinish,
-		KJFinish
+		Attacking
 	}
 
 	public enum PlayerStunnedState
