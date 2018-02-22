@@ -340,7 +340,7 @@ MonoBehaviour:
       eventInfo: 
       eventInt: 0
       eventFloat: 0
-    fps: 15
+    fps: 30
     loopStart: 0
     wrapMode: 2
   - name: kAttack1_end
