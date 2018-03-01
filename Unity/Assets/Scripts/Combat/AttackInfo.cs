@@ -30,8 +30,10 @@ public class AttackInfo : ScriptableObject
 {
 	public string attackName;
 	public string animationName;
-	public AnimationCurve movementCurve;
+	public AnimationCurve horizontalMovementCurve;
+	public AnimationCurve verticalMovementCurve;
 	public AnimationCurve rotationCurve;
+	public int inputStartFrame;
 	public InputType inputType;
 	public AttackInfo previousAttack;
 	public Hit[] hits;

@@ -14,7 +14,8 @@ namespace Enums
 	public enum PlayerAttackState
 	{
 		None,
-		Attacking
+		Attacking,
+		InputOpen
 	}
 
 	public enum PlayerStunnedState

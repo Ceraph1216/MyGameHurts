@@ -122,9 +122,14 @@ public class AttackEditorWindow : EditorWindow
 
 			EditorGUILayout.BeginVertical();
 			{
-				if (_attackInfo.movementCurve == null) 
+				if (_attackInfo.horizontalMovementCurve == null) 
 				{
-					_attackInfo.movementCurve = new AnimationCurve ();
+					_attackInfo.horizontalMovementCurve = new AnimationCurve ();
+				}
+
+				if (_attackInfo.verticalMovementCurve == null) 
+				{
+					_attackInfo.verticalMovementCurve = new AnimationCurve ();
 				}
 
 				if (_attackInfo.rotationCurve == null) 
@@ -135,8 +140,10 @@ public class AttackEditorWindow : EditorWindow
 				EditorGUIUtility.labelWidth = 90;
 				_attackInfo.attackName = EditorGUILayout.TextField("Name:", _attackInfo.attackName);
 				_attackInfo.animationName = EditorGUILayout.TextField("Animation Name:", _attackInfo.animationName);
-				_attackInfo.movementCurve = EditorGUILayout.CurveField ("Movement Curve:", _attackInfo.movementCurve);
+				_attackInfo.horizontalMovementCurve = EditorGUILayout.CurveField ("Horizontal Movement Curve:", _attackInfo.horizontalMovementCurve);
+				_attackInfo.verticalMovementCurve = EditorGUILayout.CurveField ("Vertical Movement Curve:", _attackInfo.verticalMovementCurve);
 				_attackInfo.rotationCurve = EditorGUILayout.CurveField ("Rotation Curve:", _attackInfo.rotationCurve);
+				_attackInfo.inputStartFrame = EditorGUILayout.IntField ("Input Start Frame:", _attackInfo.inputStartFrame);
 				_attackInfo.inputType = (InputType) EditorGUILayout.EnumPopup ("Input Type:", _attackInfo.inputType);
 				_attackInfo.previousAttack = (AttackInfo) EditorGUILayout.ObjectField("Previous Attack:", _attackInfo.previousAttack, typeof(AttackInfo), false);
 				ShowHits();

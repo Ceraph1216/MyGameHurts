@@ -31,6 +31,8 @@ public class SetPlayerStateScript : MonoBehaviour
 		}
 	}
 
+	private InputType _storedInput;
+
 	private Transform myTransform;
 	private AttackList _attackList;
 
@@ -70,7 +72,8 @@ public class SetPlayerStateScript : MonoBehaviour
 	void SoftUpdate(GameObject dispatcher)
 	{
 		DetermineInput ();
-		ExecuteInput ();
+		ExecuteInput (currentInput);
+		UpdateInputWindow ();
 	}
 
 	private void ChangeGroundState(GameObject dispatcher)
@@ -153,6 +156,7 @@ public class SetPlayerStateScript : MonoBehaviour
 			if (PlayerStateManager.instance.currentGroundState == Enums.PlayerGroundState.OnGround)
 			{
 				myAnimator.Play("run");
+				currentAttack = null;
 			}
 		}
 		else
@@ -168,12 +172,20 @@ public class SetPlayerStateScript : MonoBehaviour
 	{
 		// Take care of animation end
 
-		// go to transition
+		// go to transition. Check if we have a stored input first
 		if (clip.name.Contains ("Attack") && !clip.name.Contains ("_end")) 
 		{
-			string l_attackEndName = clip.name + "_end";
-			myAnimator.Play (l_attackEndName);
-			PlayerStateManager.instance.currentAttackState = Enums.PlayerAttackState.None;
+			if (_storedInput != InputType.None && ExecuteInput (_storedInput)) 
+			{
+				_storedInput = InputType.None;
+			} 
+			else 
+			{
+				string l_attackEndName = clip.name + "_end";
+				myAnimator.Play (l_attackEndName);
+				PlayerStateManager.instance.currentAttackState = Enums.PlayerAttackState.None;
+			}
+
 		}
 
 		// transition over, go to idle
@@ -184,50 +196,84 @@ public class SetPlayerStateScript : MonoBehaviour
 		}
 	}
 
+	private void UpdateInputWindow ()
+	{
+		if (PlayerStateManager.instance.currentAttackState != Enums.PlayerAttackState.Attacking) 
+		{
+			return;
+		}
+
+		if (myAnimator.CurrentClip.name.Contains ("Attack") && !myAnimator.CurrentClip.name.Contains ("_end")) 
+		{
+			if (myAnimator.CurrentFrame >= currentAttack.inputStartFrame) 
+			{
+				PlayerStateManager.instance.currentAttackState = Enums.PlayerAttackState.InputOpen;
+			}
+		}
+	}
+
 	private void DetermineInput ()
 	{
-		_currentInput = InputType.None;
+		currentInput = InputType.None;
+
+		InputType l_receivedInput = InputType.None;
+
+		if (InputManager.instance.GetLightAttack ()) 
+		{
+			l_receivedInput = InputType.LightAttack;
+		} 
+		else if (InputManager.instance.GetHeavyAttack ()) 
+		{
+			l_receivedInput = InputType.HeavyAttack;
+		} 
+		else if (InputManager.instance.GetMovement () < 0) // Moving left
+		{ 
+			l_receivedInput = InputType.MoveLeft;
+		} 
+		else if (InputManager.instance.GetMovement () > 0) // Moving Right
+		{ 
+			l_receivedInput = InputType.MoveRight;
+		} 
+
+		if (l_receivedInput == InputType.None) 
+		{
+			return;
+		}
 
 		if (PlayerStateManager.instance.currentAttackState == Enums.PlayerAttackState.None) 
 		{
-			if (InputManager.instance.GetLightAttack ()) 
-			{
-				_currentInput = InputType.LightAttack;
-			} 
-			else if (InputManager.instance.GetHeavyAttack ()) 
-			{
-				_currentInput = InputType.HeavyAttack;
-			} 
-			else if (InputManager.instance.GetMovement () < 0) // Moving left
-			{ 
-				_currentInput = InputType.MoveLeft;
-			} 
-			else if (InputManager.instance.GetMovement () > 0) // Moving Right
-			{ 
-				_currentInput = InputType.MoveRight;
-			} 
+			currentInput = l_receivedInput;
 		}
-	}
 
-	private void ExecuteInput ()
-	{
-		if (_currentInput == InputType.LightAttack || _currentInput == InputType.HeavyAttack)
+		if (PlayerStateManager.instance.currentAttackState == Enums.PlayerAttackState.InputOpen) 
 		{
-			Attack();
+			_storedInput = l_receivedInput;
 		}
 	}
 
-	private void Attack()
+	private bool ExecuteInput (InputType p_input)
 	{
-		AttackInfo l_newAttack = _attackList.GetAttackForInput (_currentInput, _currentAttack);
+		if (p_input == InputType.LightAttack || p_input == InputType.HeavyAttack)
+		{
+			return Attack(p_input);
+		}
+
+		return false;
+	}
+
+	private bool Attack(InputType p_input)
+	{
+		AttackInfo l_newAttack = _attackList.GetAttackForInput (p_input, _currentAttack);
 
 		if (l_newAttack == null) 
 		{
-			return;
+			return false;
 		}
 
 		_currentAttack = l_newAttack;
 		PlayerStateManager.instance.currentAttackState = Enums.PlayerAttackState.Attacking;
 		myAnimator.Play (_currentAttack.animationName);
+
+		return true;
 	}
 }
