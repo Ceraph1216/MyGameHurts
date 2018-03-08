@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05f19a6bd18821e4e9af450e3fb67924, type: 3}
-  m_Name: Zoru Kick 1
+  m_Name: Zoru LLL
   m_EditorClassIdentifier: 
-  attackName: Zoru Kick 1
-  animationName: kAttack1
+  attackName: Zoru LLL
+  animationName: LLLAttack
   horizontalMovementCurve:
     serializedVersion: 2
     m_Curve:
@@ -68,6 +68,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   inputStartFrame: 0
-  inputType: 4
-  previousAttack: {fileID: 0}
+  inputType: 3
+  previousAttack: {fileID: 11400000, guid: 5ba7b71fa4c5b324b8a9e0bf55d83c10, type: 2}
   hits: []

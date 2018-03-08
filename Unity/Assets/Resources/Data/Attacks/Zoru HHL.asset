@@ -9,11 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05f19a6bd18821e4e9af450e3fb67924, type: 3}
-  m_Name: Zoru Test Attack
+  m_Name: Zoru HHL
   m_EditorClassIdentifier: 
-  attackName: Zoru Test Attack
-  animationName: testAttack
-  movementCurve:
+  attackName: Zoru HHL
+  animationName: HHLAttack
+  horizontalMovementCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  verticalMovementCurve:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
@@ -25,13 +31,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  inputType: 0
-  previousAttack: {fileID: 0}
-  hits:
-  - dirty: 0
-    startTime: 0
-    endTime: 0
-    damage: 0
-    offset: {x: 0, y: 0}
-    size: {x: 0, y: 0}
-    knockback: {x: 0, y: 0}
+  inputStartFrame: 0
+  inputType: 3
+  previousAttack: {fileID: 11400000, guid: 3a9c166c940dbcd4eaadb064c3acf785, type: 2}
+  hits: []

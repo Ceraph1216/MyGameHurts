@@ -150,6 +150,63 @@ MonoBehaviour:
     - k_attack_zoru20
     - k_attack_zoru21
     - k_attack_zoru22
+    - run_zoru8
+    - run_zoru1
+    - run_zoru2
+    - run_zoru3
+    - run_zoru4
+    - run_zoru5
+    - run_zoru6
+    - run_zoru7
+    - j_attack_zoru1
+    - j_attack_zoru2
+    - j_attack_zoru3
+    - j_attack_zoru4
+    - j_attack_zoru5
+    - j_attack_zoru6
+    - j_attack_zoru7
+    - j_attack_zoru8
+    - j_attack_zoru9
+    - j_attack_zoru10
+    - j_attack_zoru11
+    - j_attack_zoru12
+    - j_attack_zoru13
+    - j_attack_zoru14
+    - j_attack_zoru15
+    - j_attack_zoru16
+    - j_attack_zoru17
+    - j_attack_zoru18
+    - j_attack_zoru19
+    - j_attack_zoru20
+    - j_attack_zoru21
+    - j_attack_zoru22
+    - j_attack_zoru23
+    - j_attack_zoru24
+    - j_attack_zoru25
+    - j_attack_zoru26
+    - j_attack_zoru27
+    - j_attack_zoru28
+    - j_attack_zoru29
+    - j_attack_zoru30
+    - j_attack_zoru31
+    - j_attack_zoru32
+    - j_attack_zoru33
+    - j_attack_zoru34
+    - j_attack_zoru35
+    - j_attack_zoru36
+    - j_attack_zoru37
+    - j_attack_zoru38
+    - j_attack_zoru39
+    - j_attack_zoru40
+    - j_attack_zoru41
+    - j_attack_zoru42
+    - j_attack_zoru43
+    - j_attack_zoru44
+    - j_attack_zoru45
+    - j_attack_zoru46
+    - k_attack_zoru26
+    - k_attack_zoru24
+    - k_attack_zoru25
     spriteTextureGUIDs:
     - c6d8a7cef4ceef344a7898208617661a
     - d852c777641342649b9800f417579c5c
@@ -182,6 +239,63 @@ MonoBehaviour:
     - 2b74e9f33191ccc4580ba8b021fbb5c9
     - 9998bfbd86643514c9c63dcf4e01d9e7
     - 549f8ac69a233784297daf24f40e1330
+    - 3c3f23e36e99dff4e8f2bdac15fa585e
+    - 127da66287d0702439e4eb3e26e9f78b
+    - a80d8b6a6207ea94cae652c6d9ee0302
+    - fb06ce335ff081f45979ffc9ba97e5c3
+    - 006bc6a30c7829e44a00c82a27e2b746
+    - 83ccf21a8221dd64c84c99fd0891469a
+    - 6e68e3ef361aba149ac8aab573e894dd
+    - 951d4a041ff2fa3468ddfa8a7952ef49
+    - 3d8c8e16accca9743b5ec1212c7b12c2
+    - 0d2d2f6b97d4d444c8217900692b6b30
+    - c6bc0f33804bd87439205743d6172cb2
+    - c50b66fe24c43344ca54abf1ddbe7c9f
+    - a5a4b2822935b6a4a9429d4d009f9bdf
+    - e57eaf77a1707694cb0d04acaebefce0
+    - 5220ff7c947066d4fb5ff341bce0414b
+    - 12986a7326d4a6b47af6c4daf38a5bb2
+    - 8d862831547c8ba4f9da5374f2d259b1
+    - bec18bc5978d30d4e99c10540db5f106
+    - c6507453c208f814ca712c1a7cf3cb64
+    - 7ee8bd52152e82543bf93dacff37be36
+    - a4efe47aade689d44bfa416492d063ab
+    - d0f1ea6c051789b44b5e6a3adaa405c7
+    - 98d111ce0acd9c640af1d22a1025d711
+    - 831065bfc7fff8e4eba6551b65121755
+    - 283c9306fd672e4458f9b68c474c60e3
+    - 1c55504f590efc04dadc37a53300a8cf
+    - 07a839abe10abb24b9dedb74c388ac33
+    - ef914bcb33e458a448fc0f582188abaf
+    - 6b8c7a515ba9a094386e61d04c0e95d0
+    - c89b90c31173b0c4381c1b4f423e3952
+    - ff5e6ced3c2128b47a2ee0202206dc0c
+    - c1b6b9d1bf963854b85b010185dc263b
+    - 2015f77b595e61f4ab737e142f07dbf8
+    - 48d0f085210211f45805e1dfa8b9b510
+    - 1f122548dab0624498906106376427fd
+    - c7413f5fb58d61c4eb3af1fb9d2e87e9
+    - 90e60ba347ebafa4fb536cf908a97ea7
+    - 4bbee0719a31a06428ef5b8dfd4b5e00
+    - fa0003d8df5982543bd5a5a2da28948f
+    - a26990ba2d26cd447851f4220e00c190
+    - 61afb4b78c79afb4681c977df8b6ce30
+    - 04f2ae724c05ee04d8296bdff938199a
+    - 79896e55aa549824cb1d3f839378bd29
+    - 914e40a9f9947664289ad4812cdf8f22
+    - 4f04cc89912a3c7458e386abb3842a5e
+    - c8098ad139392dc4f8613d4e895eb0ed
+    - c512d43dc8fad0844858167d0aa4bc9e
+    - 655b04c073944bc438b30cc6d43e5e4b
+    - cdb5faa631950ff41abe7ecd074c45f1
+    - a139614dbad47c749bda24359c12093d
+    - 1f0aabdea1d864347a5c4273ba91f56e
+    - cf04e2c89069f864d92d343827e5fe53
+    - 977d43e159a5d624386482b4987f5a42
+    - 32020cbac23692f4c9bcdeaaae3c08be
+    - 3a80ec3b3ed1dd74395b90ad9a1d48f2
+    - 45ac688b09569574b91ce5d6ecc2adab
+    - fc4fcec2cb6ff9e468f63e918fda1604
     spriteTextureTimeStamps:
     - 1518652314.81607
     - 1515626240.86045
@@ -214,6 +328,63 @@ MonoBehaviour:
     - 1515626201.83808
     - 1515626201.84108
     - 1515626201.84308
+    - 1515624202.1854
+    - 1515624202.1159
+    - 1515624202.12786
+    - 1515624202.13737
+    - 1515624202.14787
+    - 1515624202.15388
+    - 1515624202.16439
+    - 1515624202.17439
+    - 1518652314.61979
+    - 1518652314.64014
+    - 1518652314.65865
+    - 1518652314.69318
+    - 1518652314.70919
+    - 1518652314.71069
+    - 1518652314.71219
+    - 1518652314.71369
+    - 1518652314.7192
+    - 1518652314.6213
+    - 1518652314.6233
+    - 1518652314.6248
+    - 1518652314.6263
+    - 1518652314.6278
+    - 1518652314.6293
+    - 1518652314.6303
+    - 1518652314.63531
+    - 1518652314.63764
+    - 1518652314.63914
+    - 1518652314.64114
+    - 1518652314.64214
+    - 1518652314.64314
+    - 1518652314.64414
+    - 1518652314.64564
+    - 1518652314.64764
+    - 1518652314.65065
+    - 1518652314.65215
+    - 1518652314.65515
+    - 1518652314.65715
+    - 1518652314.66015
+    - 1518652314.66165
+    - 1518652314.66316
+    - 1518652314.67667
+    - 1518652314.68017
+    - 1518652314.68317
+    - 1518652314.68717
+    - 1518652314.68867
+    - 1518652314.69017
+    - 1518652314.69168
+    - 1518652314.69468
+    - 1518652314.69618
+    - 1518652314.69768
+    - 1518652314.70268
+    - 1518652314.70418
+    - 1518652314.70619
+    - 1518652314.70769
+    - 1518652314.7242
+    - 1518652314.7212
+    - 1518652314.7227
     managedSpriteCollection: 0
     loadable: 0
     assetName: 

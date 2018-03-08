@@ -9,11 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05f19a6bd18821e4e9af450e3fb67924, type: 3}
-  m_Name: Zoru Kick 3
+  m_Name: Zoru HH
   m_EditorClassIdentifier: 
-  attackName: Zoru Kick 3
-  animationName: kAttack3
-  movementCurve:
+  attackName: Zoru HH
+  animationName: HHAttack
+  horizontalMovementCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  verticalMovementCurve:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
@@ -25,6 +31,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  inputStartFrame: 0
   inputType: 4
-  previousAttack: {fileID: 11400000, guid: 3a9c166c940dbcd4eaadb064c3acf785, type: 2}
+  previousAttack: {fileID: 11400000, guid: b4fe6da7e734d6a4aac1cb3b8d6227fd, type: 2}
   hits: []
