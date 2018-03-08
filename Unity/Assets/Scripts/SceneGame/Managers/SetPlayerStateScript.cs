@@ -247,7 +247,11 @@ public class SetPlayerStateScript : MonoBehaviour
 
 		if (PlayerStateManager.instance.currentAttackState == Enums.PlayerAttackState.InputOpen) 
 		{
-			_storedInput = l_receivedInput;
+			// we only care about storing attacks. Storing movements causes the combo to be interrupted
+			if (l_receivedInput != InputType.MoveLeft && l_receivedInput != InputType.MoveRight) 
+			{
+				_storedInput = l_receivedInput;
+			}
 		}
 	}
 
