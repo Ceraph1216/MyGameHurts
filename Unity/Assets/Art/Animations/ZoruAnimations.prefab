@@ -526,6 +526,13 @@ MonoBehaviour:
       eventFloat: 0
     - spriteCollection: {fileID: 114678441485892970, guid: 6c5a326be42b99f46a8701dd6eb62d15,
         type: 2}
+      spriteId: 39
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114678441485892970, guid: 6c5a326be42b99f46a8701dd6eb62d15,
+        type: 2}
       spriteId: 40
       triggerEvent: 0
       eventInfo: 
@@ -566,7 +573,21 @@ MonoBehaviour:
       eventInfo: 
       eventInt: 0
       eventFloat: 0
-    fps: 15
+    - spriteCollection: {fileID: 114678441485892970, guid: 6c5a326be42b99f46a8701dd6eb62d15,
+        type: 2}
+      spriteId: 44
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 114678441485892970, guid: 6c5a326be42b99f46a8701dd6eb62d15,
+        type: 2}
+      spriteId: 44
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    fps: 30
     loopStart: 0
     wrapMode: 2
   - name: LAttack_end
