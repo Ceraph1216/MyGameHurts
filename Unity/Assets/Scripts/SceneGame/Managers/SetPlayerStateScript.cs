@@ -35,11 +35,13 @@ public class SetPlayerStateScript : MonoBehaviour
 
 	private Transform myTransform;
 	private AttackList _attackList;
+	private BasicPlayerMovementScript _playerMovement;
 
 	void Awake()
 	{
 		myTransform = transform;
 		_attackList = GetComponent<AttackList> ();
+		_playerMovement = GetComponent<BasicPlayerMovementScript> ();
 	}
 
 	void OnEnable()
@@ -274,6 +276,7 @@ public class SetPlayerStateScript : MonoBehaviour
 			return false;
 		}
 
+		_playerMovement.Move (new Vector3 (0, 0, 0));
 		_currentAttack = l_newAttack;
 		PlayerStateManager.instance.currentAttackState = Enums.PlayerAttackState.Attacking;
 		myAnimator.Play (_currentAttack.animationName);
