@@ -11,7 +11,7 @@ public class TrackEnemyVisibilityScript : MonoBehaviour
 		{
 			CombatCamera.numEnemiesOnScreen ++;
 			_isVisible = true;
-			Debug.Log("visible: " + CombatCamera.numEnemiesOnScreen);
+//			Debug.Log("visible: " + CombatCamera.numEnemiesOnScreen);
 		}
 	}
 
@@ -30,7 +30,7 @@ public class TrackEnemyVisibilityScript : MonoBehaviour
 		if (_isVisible)
 		{
 			CombatCamera.numEnemiesOnScreen --;
-			Debug.Log("invisible: " + CombatCamera.numEnemiesOnScreen);
+//			Debug.Log("invisible: " + CombatCamera.numEnemiesOnScreen);
 			_isVisible = false;
 		}
 	}

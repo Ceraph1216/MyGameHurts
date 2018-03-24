@@ -52,8 +52,7 @@ public class BasicPlayerMovementScript : MonoBehaviour
 	{
 		DrawRays();
 
-		// Get current velocity
-		Vector3 newVelocity = myRigidbody.velocity;
+
 
 		// Do action for current input
 		/*if (Input.GetKeyDown(KeyCode.Space))
@@ -79,84 +78,11 @@ public class BasicPlayerMovementScript : MonoBehaviour
 			l_currentMovement = 1;
 		}
 
-		// Apply horizontal movement
-		newVelocity = myRigidbody.velocity;
-		newVelocity.x =  l_currentMovement * Constants.RUN_SPEED;
-
-		// If our front sensor hit something
-		if (isHitForward)
+		if (PlayerStateManager.instance.currentAttackState == Enums.PlayerAttackState.None) 
 		{
-			// If we're trying to move toward the point we hit cancel movement
-			if (Mathf.Sign(newVelocity.x) == Mathf.Sign(mySprite.scale.x))
-			{
-				newVelocity.x = 0;
-			}
-		}
-		myRigidbody.velocity = newVelocity;
-
-		// Make sure the sprite is facing the right way
-		if (mySprite.scale.x > 0) // facing right
-		{
-			if (l_currentMovement < 0) // Moving left
-			{
-				Vector3 newScale = mySprite.scale;
-				newScale.x *= -1;
-				mySprite.scale = newScale;
-				hitboxes.localScale = newScale;
-			}
+			Move (new Vector3 (l_currentMovement * Constants.RUN_SPEED, 0, 0));
 		}
 
-		if (mySprite.scale.x < 0) // facing left
-		{
-			if (l_currentMovement > 0) // Moving right
-			{
-				Vector3 newScale = mySprite.scale;
-				newScale.x *= -1;
-				mySprite.scale = newScale;
-				hitboxes.localScale = newScale;
-			}
-		}
-
-		//----------------------
-		// Set states
-		//----------------------
-
-		// Set in air states
-
-		if (!isHitG)
-		{
-			if (myRigidbody.velocity.y > 0.5f)
-			{
-				if (PlayerStateManager.instance.currentGroundState != Enums.PlayerGroundState.Rising)
-				{
-					PlayerStateManager.instance.currentGroundState = Enums.PlayerGroundState.Rising;
-				}
-			}
-			else if (myRigidbody.velocity.y < -0.5f)
-			{
-				if (PlayerStateManager.instance.currentGroundState != Enums.PlayerGroundState.Falling)
-				{
-					PlayerStateManager.instance.currentGroundState = Enums.PlayerGroundState.Falling;
-				}
-			}
-		}
-		else
-		{
-			if (PlayerStateManager.instance.currentGroundState != Enums.PlayerGroundState.OnGround)
-			{
-				PlayerStateManager.instance.currentGroundState = Enums.PlayerGroundState.OnGround;
-			}
-		}
-
-		// Set running state
-		if (Mathf.Abs(myRigidbody.velocity.x) > 0.5f && !PlayerStateManager.instance.isMoving)
-		{
-			PlayerStateManager.instance.isMoving = true;
-		}
-		else if (Mathf.Abs(myRigidbody.velocity.x) <= 0.5f && PlayerStateManager.instance.isMoving)
-		{
-			PlayerStateManager.instance.isMoving = false;
-		}
 	}
 
 	void DrawRays()
@@ -240,6 +166,91 @@ public class BasicPlayerMovementScript : MonoBehaviour
 		{
 			isHitForward = true;
 			hitPointForward = hitFB.point;
+		}
+	}
+
+	public void Move (Vector3 p_movementVector)
+	{
+		// Get current velocity
+		Vector3 newVelocity = myRigidbody.velocity;
+
+		// Apply horizontal movement
+//		newVelocity = myRigidbody.velocity;
+		newVelocity = p_movementVector;
+
+		// If our front sensor hit something
+		if (isHitForward)
+		{
+			// If we're trying to move toward the point we hit cancel movement
+			if (Mathf.Sign(newVelocity.x) == Mathf.Sign(mySprite.scale.x))
+			{
+				newVelocity.x = 0;
+			}
+		}
+		myRigidbody.velocity = newVelocity;
+
+		// Make sure the sprite is facing the right way
+		if (mySprite.scale.x > 0) // facing right
+		{
+			if (p_movementVector.x < 0) // Moving left
+			{
+				Vector3 newScale = mySprite.scale;
+				newScale.x *= -1;
+				mySprite.scale = newScale;
+				hitboxes.localScale = newScale;
+			}
+		}
+
+		if (mySprite.scale.x < 0) // facing left
+		{
+			if (p_movementVector.x > 0) // Moving right
+			{
+				Vector3 newScale = mySprite.scale;
+				newScale.x *= -1;
+				mySprite.scale = newScale;
+				hitboxes.localScale = newScale;
+			}
+		}
+
+		//----------------------
+		// Set states
+		//----------------------
+
+		// Set in air states
+
+		if (!isHitG)
+		{
+			if (myRigidbody.velocity.y > 0.5f)
+			{
+				if (PlayerStateManager.instance.currentGroundState != Enums.PlayerGroundState.Rising)
+				{
+					PlayerStateManager.instance.currentGroundState = Enums.PlayerGroundState.Rising;
+				}
+			}
+			else if (myRigidbody.velocity.y < -0.5f)
+			{
+				if (PlayerStateManager.instance.currentGroundState != Enums.PlayerGroundState.Falling)
+				{
+					PlayerStateManager.instance.currentGroundState = Enums.PlayerGroundState.Falling;
+				}
+			}
+		}
+		else
+		{
+			if (PlayerStateManager.instance.currentGroundState != Enums.PlayerGroundState.OnGround)
+			{
+				PlayerStateManager.instance.currentGroundState = Enums.PlayerGroundState.OnGround;
+			}
+		}
+
+		// Set running state
+		if (Mathf.Abs(myRigidbody.velocity.x) > 0.5f && !PlayerStateManager.instance.isMoving)
+		{
+			PlayerStateManager.instance.isMoving = true;
+		}
+		else if (Mathf.Abs(myRigidbody.velocity.x) <= 0.5f && PlayerStateManager.instance.isMoving)
+		{
+			PlayerStateManager.instance.isMoving = false;
 		}
 	}
 }
