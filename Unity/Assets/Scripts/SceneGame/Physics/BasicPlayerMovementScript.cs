@@ -39,7 +39,10 @@ public class BasicPlayerMovementScript : MonoBehaviour
 
 	void OnEnable ()
 	{
-		SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
+        // comment this out when implementing jumping
+        PlayerStateManager.instance.currentGroundState = Enums.PlayerGroundState.OnGround;
+
+        SoftPauseScript.instance.AddToHandler (Enums.UpdateType.SoftUpdate, SoftUpdate);
 	}
 
 	void OnDisable ()
@@ -50,9 +53,8 @@ public class BasicPlayerMovementScript : MonoBehaviour
 	// Update is called once per frame
 	void SoftUpdate (GameObject dispatcher) 
 	{
+        // Uncomment when adding jumping back in
 		DrawRays();
-
-
 
 		// Do action for current input
 		/*if (Input.GetKeyDown(KeyCode.Space))

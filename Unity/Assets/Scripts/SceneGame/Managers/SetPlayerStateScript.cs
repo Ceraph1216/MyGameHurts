@@ -76,6 +76,7 @@ public class SetPlayerStateScript : MonoBehaviour
 		DetermineInput ();
 		ExecuteInput (currentInput);
 		UpdateInputWindow ();
+        ProcessAttack();
 	}
 
 	private void ChangeGroundState(GameObject dispatcher)
@@ -283,4 +284,26 @@ public class SetPlayerStateScript : MonoBehaviour
 
 		return true;
 	}
+
+	private void ProcessAttack ()
+	{
+        if (!isAttacking())
+        {
+            return;
+        }
+
+        float l_attackCompletePercentage = (float)myAnimator.CurrentFrame / (float)myAnimator.CurrentClip.frames.Length;
+        Vector3 l_movementVector = Vector3.zero;
+        l_movementVector.x = currentAttack.horizontalMovementCurve.Evaluate(l_attackCompletePercentage);
+        l_movementVector.y = currentAttack.verticalMovementCurve.Evaluate(l_attackCompletePercentage);
+
+        Debug.Log("attack movement vector: " + l_movementVector);
+
+        _playerMovement.Move(l_movementVector);
+    }
+
+    private bool isAttacking()
+    {
+        return PlayerStateManager.instance.currentAttackState != Enums.PlayerAttackState.None;
+    }
 }
