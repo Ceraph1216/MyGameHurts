@@ -220,7 +220,7 @@ public class BasicPlayerMovementScript : MonoBehaviour
 
 		// Set in air states
 
-		if (!isHitG)
+		/*if (!isHitG)
 		{
 			if (myRigidbody.velocity.y > 0.5f)
 			{
@@ -243,7 +243,7 @@ public class BasicPlayerMovementScript : MonoBehaviour
 			{
 				PlayerStateManager.instance.currentGroundState = Enums.PlayerGroundState.OnGround;
 			}
-		}
+		}*/
 
 		// Set running state
 		if (Mathf.Abs(myRigidbody.velocity.x) > 0.5f && !PlayerStateManager.instance.isMoving)
